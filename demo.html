@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <div id="qr" style="display: inline-block;">
+                        <div class="placeholder"> QR Code viewfinder comes here</div>
+                    </div>
+                    <div id="scannedCodeContainer"></div>
+                    <div id="feedback"></div>
+                </div>
+                <div class="col-md-12 scan-type-region camera" id="scanTypeCamera">
+                    <div>
+                        <input type="radio" name="scan-type" value="camera" checked>
+                        <strong>Scan using Camera</strong>&nbsp;&nbsp;
+                        <code id="status">Click "Start Scanning"</b></code>
+                        <button id="requestPermission" class="btn btn-success btn-sm">Request Permission</button>
+                    </div>
+                    <div>
+                        <div>
+                            <div id="selectCameraContainer" style="display: inline-block;"></div>
+                             <select id="cameraSelection" disabled></select>
+                        </div>
+                        <div>
+                            <button id="scanButton" class="btn btn-success btn-sm" disabled>start scanning</button>
+                            <button id="stopButton" class="btn btn-warning btn-sm" disabled>stop scanning</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://utteranc.es/client.js"
+            repo="mebjas/mebjas.github.io"
+            issue-term="title"
+            label="test"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+        <script src="qrcode.js"></script>
+        <script src="html5qrcode.js"></script>
+        <script src="scan.js"></script>
+    </body>
+</html>
