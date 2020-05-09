@@ -6,8 +6,8 @@ function docReady(fn) {
     } else {
         document.addEventListener("DOMContentLoaded", fn);
     }
-} 
-docReady(function() {
+}
+docReady(function () {
     const scanRegionCamera = document.getElementById('scanTypeCamera');
     const scanRegionFile = document.getElementById('scanTypeFile');
     const scanButton = document.getElementById('scanButton');
@@ -36,24 +36,14 @@ docReady(function() {
     const setFeedback = message => {
         feedbackContainer.innerHTML = message;
     }
-    const setStatus = status => {
-        statusContainer.style.height = "10px";
-        statusContainer.innerHTML = status;
-    }
     const qrCodeSuccessCallback = qrCodeMessage => {
-        setStatus("Pattern Found");
-        setFeedback("");
         if (lastMessageFound === qrCodeMessage.toLocaleLowerCase()) {
             return;
         }
         ++codesFound;
         lastMessageFound = qrCodeMessage.toLocaleLowerCase();
-        const result = document.createElement('div');
-        result.innerHTML = `[${codesFound}] New code found: <strong>${qrCodeMessage}</strong>`;
-        scannedCodeContainer.appendChild(result);
-    }
-    const qrCodeErrorCallback = message => {
-        setStatus("Scanning");
+        document.getElementById("outletCode").value = lastMessageFound;
+        stopScan();
     }
     const videoErrorCallback = message => {
         setFeedback(`Video Error, error = ${message}`);
@@ -112,71 +102,37 @@ docReady(function() {
     document.querySelectorAll("input[name='scan-type']").forEach(input => {
         input.addEventListener('change', onScanTypeSelectionChange);
     });
-    requestPermissionButton.addEventListener('click', function() {
-        if (currentScanTypeSelection != SCAN_TYPE_CAMERA) return;
-        requestPermissionButton.disabled = true;
+    openCamera = (element) => {
+        requestPermission();
+    };
+    requestPermission = () => {
         Html5Qrcode.getCameras().then(cameras => {
-            selectCameraContainer.innerHTML = `Select Camera (${cameras.length})`;
-            console.log(cameras.length);
             if (cameras.length == 0) {
                 return setFeedback("Error: Zero cameras found in the device");
             }
-            for (var i = 0; i < cameras.length; i++) {
-                const camera = cameras[i];
-                console.log(camera);
-                const value = camera.id;
-                console.log(value);
-                const name = camera.label == null ? value : camera.label;
-                const option = document.createElement('option');
-                option.value = value;
-                option.innerHTML = name;
-                cameraSelection.appendChild(option);
-            }
-            cameraSelection.disabled = false;
-            scanButton.disabled = false;
-            scanButton.addEventListener('click', () => {
-                if (currentScanTypeSelection != SCAN_TYPE_CAMERA) return;
-                const cameraId = cameraSelection.value;
-                cameraSelection.disabled = true;
-                scanButton.disabled = true;
-                // Start scanning.
-                html5QrCode.start(
-                    cameraId, 
-                    {
-                        fps: 10,
-                        qrbox: 250
-                    },
-                    qrCodeSuccessCallback,
-                    qrCodeErrorCallback)
-                    .then(_ => {
-                        stopButton.disabled = false;
-                        setStatus("scanning");
-                        setFeedback("");
-                    })
-                    .catch(error => {
-                        cameraSelection.disabled = false;
-                        scanButton.disabled = false;
-                        videoErrorCallback(error);
-                    });
-            });
-            stopButton.addEventListener('click', function() {
-                stopButton.disabled = true;
-                html5QrCode.stop().then(ignore => {
-                    cameraSelection.disabled = false;
-                    scanButton.disabled = false;
-                    setFeedback('Stopped');
-                    setFeedback("Click 'Start Scanning' to <b>start scanning QR Code</b>");
-                    scannedCodeContainer.innerHTML = "";
-                    setPlaceholder();
-                }).catch(err => {
-                    stopButton.disabled = false;
-                    setFeedback('Error');
-                    setFeedback("Race condition, unable to close the scan.");
-                });
-            });
+            startScan(cameras);
         }).catch(err => {
-            requestPermissionButton.disabled = false;
             setFeedback(`Error: Unable to query any cameras. Reason: ${err}`);
         });
-    });
+    }
+
+    startScan = (cameras) => {
+        const cameraId = cameras[0].id;
+        html5QrCode.start(
+                cameraId, {
+                    fps: 10,
+                    qrbox: 250
+                },
+                qrCodeSuccessCallback).catch(error => {
+                videoErrorCallback(error);
+            });
+    }
+
+    stopScan = () => {
+        html5QrCode.stop().then(ignore => {
+            setPlaceholder();
+        }).catch(err => {
+            setFeedback("Error : unable to close the scan.");
+        });
+    }
 });

@@ -6,13 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="awesome.css" />
-    <link rel="stylesheet" type="text/css" href="animate.css" />
-    <link rel="stylesheet" type="text/css" href="font.css" />
-    <link rel="stylesheet" type="text/css" href="scroller.css" />
-    <link rel="stylesheet" type="text/css" href="slick.css" />
-    <link rel="stylesheet" type="text/css" href="fancy.css" />
-    <link rel="stylesheet" type="text/css" href="theme.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="qrcode.js" defer></script>
     <script src="html5qrcode.js" defer></script>
@@ -27,12 +20,18 @@
                         <div class="header_top">
                             <div class="header_top_left">
                                 <ul class="top_nav">
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="admin.html">Admin</a></li>
+                                    <li><a href="/">Register</a></li>
+                                    <li><a href="order.html">Order</a></li>
+                                    <li><a href="distributor.html">Distributor</a></li>
                                 </ul>
                             </div>
                             <div class="header_top_right">
                                 <p>
+                                    &nbsp;
+                                    [
+                                    <a href="dashboard.html" id="#">Admin</a>
+                                    ]
+                                    &nbsp;&nbsp;
                                     <script>
                                         document.write(new Date().toDateString());
                                     </script>
@@ -73,12 +72,12 @@
                                             <div class="table-responsive table-bordered">
                                                 <div class="panel-body">
                                                     <div class="row" style="padding-bottom: 0.5%">
-                                                        <div class="col-lg-1 col-md-1 col-sm-1" style="text-align: left">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
                                                             <label for="empCode">Employee Code*</label>
                                                         </div>
-                                                        <div class="col-lg-2 col-md-2 col-sm-2">
-                                                            <select id="empCode" class="form-control" name="empCode">
-                                                                <option selected="selected" value="0">--Select--</option>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <select id="empCode" class="form-control" name="empCode" onchange="openCamera(this)">
+                                                                <option selected="selected" value="0">------------Select----------</option>
                                                                 <option value="209">Arariya</option>
                                                                 <option value="240">Arwal</option>
                                                                 <option value="235">Aurangabad</option>
@@ -123,29 +122,11 @@
                                                     <div class="container">
                                                         <div class="scan">
                                                             <div class="col-md-12" style="text-align: center;">
-                                                                <div id="qr" style="display: inline-block;">
-                                                                    <div class="placeholder">QR Code Viewfinder Placeholder</div>
+                                                                <div id="qr" class="qr" style="display: inline-block;">
+                                                                    <div class="placeholder">QR Code</div>
                                                                 </div>
                                                                 <div id="scannedCodeContainer"></div>
                                                                 <div id="feedback"></div>
-                                                            </div>
-                                                            <div class="col-md-12 scan-type-region camera" id="scanTypeCamera">
-                                                                <div>
-                                                                    <input id="scanType" type="radio" name="scanType" value="camera" checked>
-                                                                    <label for="scanType">Scan using Camera</label>&nbsp;&nbsp;
-                                                                    <code id="status">Scanning</code>
-                                                                    <button id="requestPermission" class="btn btn-success btn-sm">Request Permission</button>
-                                                                </div>
-                                                                <div>
-                                                                    <div>
-                                                                        <div id="selectCameraContainer" style="display: inline-block;"></div>
-                                                                        <select id="cameraSelection" disabled></select>
-                                                                    </div>
-                                                                    <div>
-                                                                        <button id="scanButton" class="btn btn-success btn-sm" disabled>Start Scanning</button>
-                                                                        <button id="stopButton" class="btn btn-warning btn-sm" disabled>Stop Scanning</button>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -189,18 +170,26 @@
                                                             <textarea name="outletAddr" id="outletAddr" class="form-control"></textarea>
                                                         </div>
                                                     </div>
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                            <label for="pin">PIN*</label>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                            <input name="pin" type="text" maxlength="6" id="pin" class="form-control" placeholder="" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row" style="padding-bottom: 0.5%">
                                                     <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center">
                                                         <input type="submit" value="Register" id="register" class="btn btn-danger" />
-                                                        <input type="submit" value="Cancel" class="btn btn-danger" />
+                                                        <input type="reset" value="Cancel" class="btn btn-danger" />
                                                     </div>
                                                 </div>
                                                 <div class="panel-footer">
                                                     <div id="footer">
                                                         <div class="footer_bottom">
-                                                            <p class="copyright">Copyright &copy; 2020 <a href="/">All Rights Reserved</a></p>
-                                                            <p class="developer">Software Solutions Provided by <a href="#">Elysian Corptech</a></p>
+                                                            <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
+                                                            <p class="developer">Software Solutions Provided by <a href="https://www.elysiancorptech.com/">Elysian Corptech</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
