@@ -18,7 +18,7 @@ app.post('/data', (request, response) => {
     });
 
     retailInfo.save().then((data) => {
-            response.header('Access-Control-Allow-Origin', '*').status(200).send();
+            response.header('Access-Control-Allow-Origin', '*').status(200).redirect('/');
         }, (err) => {
             response.status(400).send(err);
     });
