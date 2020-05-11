@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Growmax</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="qrcode.js" defer></script>
+    <script src="html5qrcode.js" defer></script>
+    <script src="scan.js" defer></script>
+    <script src="ajax.js" defer></script>
+</head>
+<body>
+    <div class="container">
+            <div id="header">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="header_top">
+                            <div class="header_top_left">
+                                <ul class="top_nav">
+                                    <li><a href="index.html">Register</a></li>
+                                    <li><a href="/">Order</a></li>
+                                    <li><a href="distributor.html">Distributor</a></li>
+                                </ul>
+                            </div>
+                            <div class="header_top_right">
+                                <p>
+                                    &nbsp;
+                                    [
+                                    <a href="dashboard.html" id="#">Admin</a>
+                                    ]
+                                    &nbsp;&nbsp;
+                                    <script>
+                                        document.write(new Date().toDateString());
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="header_bottom">
+                            <div class="add_banner">
+                                <a href="#">
+                                    <img src="banner.jpg" alt="Elysian Corptech" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                </div>
+            </div>
+            <div class="main">
+                <div id="contentSection">
+                    <div class="row">
+                        <div class="col-lg-0 col-md-0 col-sm-0">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="left_content">
+                                <div class="contact_area">
+                                    <div class="panel panel-danger">
+                                        <center>
+                                            <h5>
+                                                <b>-----------Outlet Registration Form-----------</b>
+                                            </h5>
+                                        </center>
+                                        <form method="post" action="/data" name="registrationForm">
+                                            <div class="table-responsive table-bordered">
+                                                <div class="panel-body">
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                            <label for="empCode">Employee Code*</label>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <select id="empCode" class="form-control" name="empCode" onchange="openCamera(this)">
+                                                                <option selected="selected" value="0">------------Select----------</option>
+                                                                <option value="209">Arariya</option>
+                                                                <option value="240">Arwal</option>
+                                                                <option value="235">Aurangabad</option>
+                                                                <option value="225">Banka</option>
+                                                                <option value="222">Begusarai</option>
+                                                                <option value="224">Bhagalpur</option>
+                                                                <option value="231">Bhojpur</option>
+                                                                <option value="232">Buxer</option>
+                                                                <option value="215">Darbhanga</option>
+                                                                <option value="236">Gaya</option>
+                                                                <option value="217">Gopalganj</option>
+                                                                <option value="238">Jamui</option>
+                                                                <option value="239">Jahanabad</option>
+                                                                <option value="233">Kaimur</option>
+                                                                <option value="212">Katihar</option>
+                                                                <option value="223">Khagariya</option>
+                                                                <option value="210">Kisanganj</option>
+                                                                <option value="227">Lakhisarai</option>
+                                                                <option value="213">Madhepura</option>
+                                                                <option value="207">Madhubani</option>
+                                                                <option value="226">Munger</option>
+                                                                <option value="216">Mujaffarpur</option>
+                                                                <option value="229">Nalanda</option>
+                                                                <option value="237">Navada</option>
+                                                                <option value="203">Paschhim Champaran</option>
+                                                                <option value="230">Patna</option>
+                                                                <option value="204">Purvi Champaran</option>
+                                                                <option value="211">Purnea</option>
+                                                                <option value="234">Rohtas</option>
+                                                                <option value="214">Saharsa</option>
+                                                                <option value="221">Samastipur</option>
+                                                                <option value="219">Saran</option>
+                                                                <option value="228">Sheikhpura</option>
+                                                                <option value="205">Shivhar</option>
+                                                                <option value="206">Sitamadhi</option>
+                                                                <option value="218">Sivan</option>
+                                                                <option value="208">Supaul</option>
+                                                                <option value="220">Vaishali</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                            <label for="distribCode">Distributor Code*</label>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <select id="distribCode" class="form-control" name="distribCode">
+                                                                <option selected="selected" value="0">------------Select----------</option>
+                                                                <option value="209">Arariya</option>
+                                                                <option value="240">Arwal</option>
+                                                                <option value="235">Aurangabad</option>
+                                                                <option value="225">Banka</option>
+                                                                <option value="222">Begusarai</option>
+                                                                <option value="224">Bhagalpur</option>
+                                                                <option value="231">Bhojpur</option>
+                                                                <option value="232">Buxer</option>
+                                                                <option value="215">Darbhanga</option>
+                                                                <option value="236">Gaya</option>
+                                                                <option value="217">Gopalganj</option>
+                                                                <option value="238">Jamui</option>
+                                                                <option value="239">Jahanabad</option>
+                                                                <option value="233">Kaimur</option>
+                                                                <option value="212">Katihar</option>
+                                                                <option value="223">Khagariya</option>
+                                                                <option value="210">Kisanganj</option>
+                                                                <option value="227">Lakhisarai</option>
+                                                                <option value="213">Madhepura</option>
+                                                                <option value="207">Madhubani</option>
+                                                                <option value="226">Munger</option>
+                                                                <option value="216">Mujaffarpur</option>
+                                                                <option value="229">Nalanda</option>
+                                                                <option value="237">Navada</option>
+                                                                <option value="203">Paschhim Champaran</option>
+                                                                <option value="230">Patna</option>
+                                                                <option value="204">Purvi Champaran</option>
+                                                                <option value="211">Purnea</option>
+                                                                <option value="234">Rohtas</option>
+                                                                <option value="214">Saharsa</option>
+                                                                <option value="221">Samastipur</option>
+                                                                <option value="219">Saran</option>
+                                                                <option value="228">Sheikhpura</option>
+                                                                <option value="205">Shivhar</option>
+                                                                <option value="206">Sitamadhi</option>
+                                                                <option value="218">Sivan</option>
+                                                                <option value="208">Supaul</option>
+                                                                <option value="220">Vaishali</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="container">
+                                                        <div class="scan">
+                                                            <div class="col-md-12" style="text-align: center;">
+                                                                <div id="qr" class="qr" style="display: inline-block;">
+                                                                    <div class="placeholder">QR Code</div>
+                                                                </div>
+                                                                <div id="scannedCodeContainer"></div>
+                                                                <div id="feedback"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                            <label for="outletCode">Outlet Code*</label>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                                            <input id="outletCode" name="outletCode" type="text" maxlength="50" class="form-control" style="resize: none" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 0.5%">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center">
+                                                        <input type="submit" value="Register" id="register" class="btn btn-danger" />
+                                                        <input type="reset" value="Cancel" class="btn btn-danger" />
+                                                    </div>
+                                                </div>
+                                                <div class="panel-footer">
+                                                    <div id="footer">
+                                                        <div class="footer_bottom">
+                                                            <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
+                                                            <p class="developer">Software Solutions Provided by <a href="https://www.elysiancorptech.com/">Elysian Corptech</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
