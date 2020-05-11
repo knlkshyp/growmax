@@ -6,7 +6,7 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
 });   
 
-app.post('/data', (request, response) => {
+app.post('/retail-data', (request, response) => {
     const retailInfo = new RetailInfo({
         scanType: request.body.scanType,
         empCode: request.body.empCode,
@@ -18,9 +18,16 @@ app.post('/data', (request, response) => {
     });
 
     retailInfo.save().then((data) => {
-            response.header('Access-Control-Allow-Origin', '*').status(200).redirect('/');
+            response.status(200).redirect('/');
         }, (err) => {
             response.status(400).send(err);
     });
+});
 
+app.get('/dashboard', (request, response) => {
+    response.sendFile(__dirname + '/dashboard.html');
+});
+
+app.get('/order', (request, response) => {
+    response.sendFile(__dirname + '/order.html');
 });
