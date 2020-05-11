@@ -1,6 +1,7 @@
 const RetailInfo = require('./mongo/retailInfo.js'),
         app = require('./serverConfig.js'),
-            growmax = require('./mongo/config.js');
+            growmax = require('./mongo/config.js'),
+                OrderInfo = require('./mongo/orderInfo.js');
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
@@ -8,16 +9,17 @@ app.get('/', (request, response) => {
 
 app.post('/retail-data', (request, response) => {
     const retailInfo = new RetailInfo({
-        scanType: request.body.scanType,
         empCode: request.body.empCode,
         outletCode: request.body.outletCode,
         outletName: request.body.outletName,
         ownerName: request.body.ownerName,
         contactNum: request.body.contactNum,
         outletAddr: request.body.outletAddr,
+        pin: request.body.pin,
+        date: new Date().toDateString()
     });
 
-    retailInfo.save().then((data) => {
+    retailInfo.save().then(() => {
             response.status(200).redirect('/');
         }, (err) => {
             response.status(400).send(err);
@@ -30,4 +32,21 @@ app.get('/dashboard', (request, response) => {
 
 app.get('/order', (request, response) => {
     response.sendFile(__dirname + '/order.html');
+});
+
+app.post('/order-data', (request, response) => {
+    const orderInfo = new OrderInfo({
+        empCode: request.body.empCode,
+        distribCode: request.body.distribCode,
+        outletCode: request.body.outletCode,
+        productItem: request.body.productItem,
+        quantity: request.body.quantity,
+        date: new Date().toDateString()
+    });
+
+    orderInfo.save().then(() => {
+            response.status(200).redirect('/order');
+        }, (err) => {
+            response.status(400).send(err);
+    });
 });

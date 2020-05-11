@@ -5,9 +5,6 @@ const retailInfoSchema = new Schema({
     empCode: {
         type: String
     },
-    scanType: {
-        type: String
-    },
     outletCode: {
         type: String
     },
@@ -21,6 +18,12 @@ const retailInfoSchema = new Schema({
         type: String
     },
     outletAddr: {
+        type: String
+    },
+    pin: {
+        type: String
+    },
+    date: {
         type: String
     }
 });
