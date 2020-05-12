@@ -67,7 +67,9 @@ barGraph("avg-daily-sales");
 barGraph("avg-sales-per-outlet");
 barGraph("total-inventory");
 barGraph("total-sales");
+
 areaChart("avg-units-per-outlet");
 areaChart("total-leads");
+
 stepLineChart("avg-order-time");
 stepLineChart("profit-margin");

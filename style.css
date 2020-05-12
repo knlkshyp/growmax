@@ -188,7 +188,7 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .tag_nav li{}
 .tag_nav li a{border-bottom:1px solid #ddd; color:#ccc; display:block; padding:6px 6px 6px 0; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .tag_nav li a:hover{padding-left:10px}
-.footer_bottom{float:left; display:inline; width:100%; padding:10px 30px; background-color:#303030; color:#ccc}
+.footer_bottom{float:left; display:inline; width:100%; padding:5px 30px; background-color:#303030; color:#ccc}
 .copyright{float:left; width:50%; padding-top:5px; text-align:left; color:White}
 .copyright a{color:#ccc}
 .developer{float:right; width:50%; text-align:right; padding-top:5px; color:White}

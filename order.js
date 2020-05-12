@@ -7,7 +7,7 @@ function addList() {
     if (!rowSet.has(productItem)) {
         rowSet.add(productItem);
         const row = document.createElement('DIV');
-        row.setAttribute("class", "row col-lg-3 col-md-3 col-sm-3");
+        row.setAttribute("class", "dynamic row col-lg-3 col-md-3 col-sm-3");
         const rowItem = document.createElement('INPUT');
         rowItem.setAttribute("class", "row-items");
         rowItem.setAttribute("type", "text");
@@ -34,7 +34,14 @@ function showList() {
     }
 }
 
+function resetFields() {
+    stopScan();
+    const dynamic = document.getElementsByClassName("dynamic");
+    for (index=0;index<dynamic.length;index++) {
+        dynamic[index].remove();
+    }
+}
+
 
 function validateFields() {
-    
 }
