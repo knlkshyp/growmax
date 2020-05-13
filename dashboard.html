@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Growmax</title>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="bootstrap.css" />
@@ -11,170 +12,177 @@
     <script src="dashboard.js" defer></script>
     <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-base.min.js"></script>
 </head>
+
 <body>
     <div class="container">
-            <div id="header">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="header_top">
-                            <div class="header_top_left">
-                                <ul class="top_nav">
-                                    <li><a href="/">Register</a></li>
-                                    <li><a href="order.html">Order</a></li>
-                                    <li><a href="distributor.html">Distributor</a></li>
-                                </ul>
-                            </div>
-                            <div class="header_top_right">
-                                <p>
-                                    <script>
-                                        document.write(new Date().toDateString());
-                                    </script>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="header_bottom">
-                            <div class="add_banner">
-                                <a href="#">
-                                    <img src="banner.jpg" alt="Elysian Corptech" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="header">
             <div class="row">
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_top">
+                        <div class="header_top_left">
+                            <ul class="top_nav">
+                                <li><a href="/">Register</a></li>
+                                <li><a href="/dashboard">Order</a></li>
+                                <li><a href="/input">Distributor</a></li>
+                            </ul>
+                        </div>
+                        <div class="header_top_right">
+                            <p>
+                                <script>
+                                    document.write(new Date().toDateString());
+                                </script>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_bottom">
+                        <div class="add_banner">
+                            <a href="#">
+                                <img src="banner.jpg" alt="Elysian Corptech" />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="main">
-                <div id="contentSection">
-                    <div class="row">
-                        <div class="col-lg-0 col-md-0 col-sm-0">
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="left_content">
-                                <div class="contact_area">
-                                    <div class="panel panel-danger">
-                                        <center>
-                                            <h5>
-                                                <b>-----------Dashboard-----------</b>
-                                            </h5>
-                                        </center>
-                                        <form method="post" action="/data" name="registrationForm">
-                                            <div class="table-resonsive table-bordered">
-                                                <div class="panel-body">
-                                                    <div class="retail">
-                                                        <h3>Retail Reports</h3>
-                                                        <div class="row" style="padding-bottom: 0.5%">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                                <h4>KPIs</h4>
-                                                                <h5>Average Daily Sales</h5>
-                                                                <div id="avg-daily-sales">
-                                                                </div>
-                                                                <h5>Average Sales per Outlet</h5>
-                                                                <div id="avg-sales-per-outlet">
-                                                                </div>
-                                                                <h5>Average Units per Outlet</h5>
-                                                                <div id="avg-units-per-outlet">
-                                                                </div>
-                                                                <h5>Sales by area</h5>
-                                                                <div id="sales-by-area">
-                                                                    <table class="table">
-                                                                        <tr>
-                                                                            <th colspan="3" textalign>Top Stores</th>
-                                                                            <th colspan="3">Bottom Stores</th>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>Outlet Code</th>
-                                                                            <th>Outlet Name</th> 
-                                                                            <th>Sales Value</th>
-                                                                            <th>Outlet Code</th>
-                                                                            <th>Outlet Name</th> 
-                                                                            <th>Sales Value</th>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>X</td>
-                                                                            <td>X</td>
-                                                                            <td>00</td>
-                                                                            <td>A</td>
-                                                                            <td>A</td>
-                                                                            <td>00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Y</td>
-                                                                            <td>Y</td>
-                                                                            <td>00</td>
-                                                                            <td>B</td>
-                                                                            <td>B</td>
-                                                                            <td>00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Z</td>
-                                                                            <td>Z</td>
-                                                                            <td>00</td>
-                                                                            <td>C</td>
-                                                                            <td>C</td>
-                                                                            <td>00</td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                                <h5>Top store</h5>
-                                                                <div id="top-store">
-                                                                    <p>Top Store Name  &nbsp;
-                                                                        Outlet Code
-                                                                    </p>
-                                                                </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+            </div>
+        </div>
+        <div class="main">
+            <div id="contentSection">
+                <div class="row">
+                    <div class="col-lg-0 col-md-0 col-sm-0">
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="left_content">
+                            <div class="contact_area">
+                                <div class="panel panel-danger">
+                                    <center>
+                                        <h5>
+                                            <b>-----------Dashboard-----------</b>
+                                        </h5>
+                                    </center>
+                                    <form method="post" action="/data" name="registrationForm">
+                                        <div class="table-resonsive table-bordered">
+                                            <div class="panel-body">
+                                                <div class="retail">
+                                                    <h3>Retail Reports</h3>
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3"
+                                                            style="text-align: left">
+                                                            <h4>KPIs</h4>
+                                                            <h5>Average Daily Sales</h5>
+                                                            <div id="avg-daily-sales">
+                                                            </div>
+                                                            <h5>Average Sales per Outlet</h5>
+                                                            <div id="avg-sales-per-outlet">
+                                                            </div>
+                                                            <h5>Average Units per Outlet</h5>
+                                                            <div id="avg-units-per-outlet">
+                                                            </div>
+                                                            <h5>Sales by area</h5>
+                                                            <div id="sales-by-area">
+                                                                <table class="table">
+                                                                    <tr>
+                                                                        <th colspan="3" textalign>Top Stores</th>
+                                                                        <th colspan="3">Bottom Stores</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Outlet Code</th>
+                                                                        <th>Outlet Name</th>
+                                                                        <th>Sales Value</th>
+                                                                        <th>Outlet Code</th>
+                                                                        <th>Outlet Name</th>
+                                                                        <th>Sales Value</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>X</td>
+                                                                        <td>X</td>
+                                                                        <td>00</td>
+                                                                        <td>A</td>
+                                                                        <td>A</td>
+                                                                        <td>00</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Y</td>
+                                                                        <td>Y</td>
+                                                                        <td>00</td>
+                                                                        <td>B</td>
+                                                                        <td>B</td>
+                                                                        <td>00</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Z</td>
+                                                                        <td>Z</td>
+                                                                        <td>00</td>
+                                                                        <td>C</td>
+                                                                        <td>C</td>
+                                                                        <td>00</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            <h5>Top store</h5>
+                                                            <div id="top-store">
+                                                                <p>Top Store Name &nbsp;
+                                                                    Outlet Code
+                                                                </p>
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-bottom: 0.5%">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                                <h4>Reports</h4>                                                               
-                                                            </div>
-                                                            <div class="reports"></div>
-                                                        </div> 
                                                     </div>
-                                                    <div class="sales">
-                                                        <h3>Sales Reports</h3>
-                                                        <div class="row" style="padding-bottom: 0.5%">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                                <h4>KPIs</h4>
-                                                                <h5>Average Order Time</h5>
-                                                                <div id="avg-order-time">
-                                                                </div>
-                                                                <h5>Profit Margin</h5>
-                                                                <div id="profit-margin">
-                                                                </div>
-                                                                <h5>Total Inventory</h5>
-                                                                <div id="total-inventory">
-                                                                </div>
-                                                                <h5>Total Leads</h5>
-                                                                <div id="total-leads">
-                                                                </div>
-                                                                <h5>Total Sales</h5>
-                                                                <div id="total-sales">
-                                                                </div>
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3"
+                                                            style="text-align: left">
+                                                            <h4>Reports</h4>
+                                                        </div>
+                                                        <div class="reports"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="sales">
+                                                    <h3>Sales Reports</h3>
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3"
+                                                            style="text-align: left">
+                                                            <h4>KPIs</h4>
+                                                            <h5>Average Order Time</h5>
+                                                            <div id="avg-order-time">
+                                                            </div>
+                                                            <h5>Profit Margin</h5>
+                                                            <div id="profit-margin">
+                                                            </div>
+                                                            <h5>Total Inventory</h5>
+                                                            <div id="total-inventory">
+                                                            </div>
+                                                            <h5>Total Leads</h5>
+                                                            <div id="total-leads">
+                                                            </div>
+                                                            <h5>Total Sales</h5>
+                                                            <div id="total-sales">
                                                             </div>
                                                         </div>
-                                                        <div class="row" style="padding-bottom: 0.5%">
-                                                            <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                                <h4>Reports</h4>
-                                                            </div>
-                                                        </div> 
                                                     </div>
-                                                </div>                                                
-                                                <div class="panel-footer">
-                                                    <div id="footer">
-                                                        <div class="footer_bottom">
-                                                            <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
-                                                            <p class="developer">Software Solutions Provided by <a href="https://www.elysiancorptech.com/">Elysian Corptech</a></p>
+                                                    <div class="row" style="padding-bottom: 0.5%">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3"
+                                                            style="text-align: left">
+                                                            <h4>Reports</h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div class="panel-footer">
+                                                <div id="footer">
+                                                    <div class="footer_bottom">
+                                                        <p class="copyright">Copyright &copy; 2020 All Rights Reserved
+                                                        </p>
+                                                        <p class="developer">Software Solutions Provided by <a
+                                                                href="https://www.elysiancorptech.com/">Elysian
+                                                                Corptech</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -182,5 +190,7 @@
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

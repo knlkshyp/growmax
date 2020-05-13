@@ -24,15 +24,15 @@
                         <div class="header_top_left">
                             <ul class="top_nav">
                                 <li><a href="/">Register</a></li>
-                                <li><a href="order.html">Order</a></li>
-                                <li><a href="distributor.html">Distributor</a></li>
+                                <li><a href="/order">Order</a></li>
+                                <li><a href="/distributor">Distributor</a></li>
                             </ul>
                         </div>
                         <div class="header_top_right">
                             <p>
                                 &nbsp;
                                 [
-                                <a href="dashboard.html" id="#">Admin</a>
+                                <a href="login.html" id="#">Admin</a>
                                 ]
                                 &nbsp;&nbsp;
                                 <script>
@@ -69,7 +69,7 @@
                                     <form method="post" action="/order-data" name="order-form" id="order-form">
                                         <div class="panel-body">
                                             <center>
-                                                <input id="outletCode" type="text" class="outletCode" readonly/>
+                                                <input id="outletCode" type="text" class="outletCode" readonly />
                                             </center>
                                             <div class="row" style="padding-bottom: 0.5%">
                                                 <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
@@ -184,8 +184,7 @@
                                                     <label for="productList">Products</label>
                                                 </div>
                                                 <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <select id="productList" class="form-control" 
-                                                        onchange="addList()">
+                                                    <select id="productList" class="form-control" onchange="addList()">
                                                         <option selected="selected" value="0">
                                                             ------------Select----------</option>
                                                         <option value="209">Arariya</option>
@@ -234,24 +233,23 @@
                                     <div class="row" style="padding-bottom: 0.5%">
                                         <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center">
                                             <input type="submit" value="Order" id="order" class="btn btn-danger"
-                                                form="order-form" onclick="validateFields()"/>
+                                                form="order-form" onclick="validateFields()" />
                                             <input type="reset" value="Cancel" id="reset" class="btn btn-danger"
                                                 form="order-form" onclick="resetFields()" />
-                                        </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <div id="footer">
-                                            <div class="footer_bottom">
-                                                <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
-                                                <p class="developer">Software Solutions Provided by <a
-                                                        href="https://www.elysiancorptech.com/">Elysian Corptech</a></p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="footer_bottom">
+                    <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
+                    <p class="developer">Software Solutions Provided by <a
+                            href="https://www.elysiancorptech.com/">Elysian Corptech</a>
+                    </p>
                 </div>
             </div>
         </div>
