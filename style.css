@@ -264,7 +264,7 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .style3 {width: 30%;height: 21px;}
 .style4 {width: 70%;height: 21px;}
 .placeholder {margin-left: 400px;}
-.outletCode {border: none; font-size: 24px; font-weight: bold; text-decoration: underline; padding: 10px 0px 10px 0px;}
+.outletCode {border: none; font-size: 24px; font-weight: bold; text-decoration: underline; padding: 10px 0px 20px 0px;}
 *:focus {outline: none;}
 @media(max-width:500px ){.qr{margin-left: -50px}
 @media(max-width:1199px ){.logo_area{width:0%}.add_banner{width:580px}.nav-tabs > li{width:32.3%}.photograph_nav li{width:31.5%}

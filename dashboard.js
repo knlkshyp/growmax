@@ -1,10 +1,21 @@
+function getValueForDailySales() {
+    var cost = [ 200, 300, 400, 500, 600 ];
+    var volume = [ 7, 8, 9, 10, 11];
+    var DailySalesValue = [];
+    for(index=0;index<cost.length;index++) {
+        value[index] = cost[index] * volume[index];
+    }
+    return DailySalesValue;
+}
+
 function barGraph(containerId) {
+    var values = getValueForDailySales();
     var data = [
-        ["John", 10000],
-        ["Jake", 12000],
-        ["Peter", 13000],
-        ["James", 10000],
-        ["Mary", 9000]
+        ["P1", values[0]],
+        ["P2", values[1]],
+        ["P3", values[2]],
+        ["P4", values[3]],
+        ["P5", values[4]]
     ];
 
     chart = anychart.column();
