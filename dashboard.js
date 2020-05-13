@@ -3,7 +3,7 @@ function getValueForDailySales() {
     var volume = [ 7, 8, 9, 10, 11];
     var DailySalesValue = [];
     for(index=0;index<cost.length;index++) {
-        value[index] = cost[index] * volume[index];
+        DailySalesValue[index] = cost[index] * volume[index];
     }
     return DailySalesValue;
 }

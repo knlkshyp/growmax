@@ -8,11 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="login.js" defer></script>
 </head>
 
 <body>
-    <form method="post" action="input.html" id="loginForm">
+    <form method="post" action="#" id="inputForm">
         <div class="container">
             <div id="header">
                 <div class="row">
@@ -20,18 +19,13 @@
                         <div class="header_top">
                             <div class="header_top_left">
                                 <ul class="top_nav">
-                                    <li><a href="/">Register</a></li>
-                                    <li><a href="/order">Order</a></li>
-                                    <li><a href="/distributor">Distributor</a></li>
+                                    <li><a href="index.html">#</a></li>
+                                    <li><a href="dashboard.html">Dashboard</a></li>
+                                    <li><a href="input.html">Update</a></li>
                                 </ul>
                             </div>
                             <div class="header_top_right">
                                 <p>
-                                    &nbsp;
-                                    [
-                                    <a href="login.html">Admin</a>
-                                    ]
-                                    &nbsp;&nbsp;
                                     <script>
                                         document.write(new Date().toDateString());
                                     </script>
@@ -71,35 +65,26 @@
                                                 <div class="row"
                                                     style="padding-bottom: 1.5%; padding-top: 1.5%; padding-left: 0.5%">
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                                        <span id="ctl00_MainContent_Label5">User Id*</span>
-                                                    </div>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                                        <input name="userId" type="text"
-                                                            maxlength="12" id="adminUserId"
-                                                            class="form-control" placeholder="User Id" required/>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row"
-                                                    style="padding-bottom: 1.5%; padding-top: 1.5%; padding-left: 0.5%">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                                        <span id="ctl00_MainContent_lblchildrenparent"> Password*
-                                                        </span>
-                                                    </div>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                                        <input name="password" type="password"
-                                                            id="adminPassword" class="form-control" placeholder="Password" required/>
+                                                        <input name="ctl00$MainContent$txtUserId" type="radio"
+                                                            id="outletCode" class="" />
+                                                        <label for="ctl00_MainContent_Label5">Outlet</label><br>
+                                                        <input name="ctl00$MainContent$txtUserId" type="radio"
+                                                            id="empCode" class="" />
+                                                        <label for="ctl00_MainContent_Label5">Employee</label><br>
+                                                        <input name="ctl00$MainContent$txtUserId" type="radio"
+                                                            id="productDetails" class="" />
+                                                        <label for="ctl00_MainContent_Label5">Product Item</label>
                                                     </div>
                                                 </div>
                                                 <div class="row"
                                                     style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
                                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                                         <input type="submit" name="ctl00$MainContent$btnLogin"
-                                                            value="Login" onclick="" id="login"
-                                                            class="btn btn-danger" onclick="return validate()" />
+                                                            value="Update" onclick="" id="ctl00_MainContent_btnUpdate"
+                                                            class="btn btn-danger" />
 
                                                         <input type="reset" name="ctl00$MainContent$btnClear"
-                                                            value="clear" onclick="" id="clear"
+                                                            value="Reset" onclick="" id="ctl00_MainContent_btnReset"
                                                             class="btn btn-danger" />
                                                     </div>
                                                 </div>
