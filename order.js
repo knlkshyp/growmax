@@ -1,7 +1,11 @@
+const order = document.getElementById('order');
+const reset = document.getElementById('reset');
+order.addEventListener('click', validateFields);
+reset.addEventListener('click', resetFields);
+
 const form = document.getElementById('order-form');
 const dynamicList = document.createElement('DIV');
 dynamicList.setAttribute('id', 'dynamic');
-dynamicList.addEventListener("click", removeItem);
 
 const rowSet = new Set();
 
@@ -23,10 +27,16 @@ function addList() {
         quantity.setAttribute('type', 'text');
         quantity.setAttribute('name', 'quantity');
         quantity.setAttribute('placeholder', 'Quantity');
+        const removeButton = document.createElement('INPUT');
+        removeButton.setAttribute('type', 'button');
+        removeButton.setAttribute('id', 'remove');
+        removeButton.setAttribute('value', 'X');
         row.appendChild(rowItem);
         row.appendChild(quantity);
+        row.appendChild(removeButton);
         dynamicList.appendChild(row);
         form.appendChild(dynamicList);
+        removeButton.addEventListener('click', removeItem);
     }
 }
 
