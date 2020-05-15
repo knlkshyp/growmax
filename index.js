@@ -50,3 +50,16 @@ app.post('/order-data', (request, response) => {
             response.status(400).send(err);
     });
 });
+
+app.get('/distributor', (request, response) => {
+    // response.sendFile(__dirname + '/distributor.html');
+    response.send('Distributor page not found');
+});
+
+app.get('/login', (request, response) => {
+    response.sendFile(__dirname + '/login.html');
+});
+
+app.post('/admin', (request, response) => {
+    response.sendFile(__dirname + '/admin.html');
+});
