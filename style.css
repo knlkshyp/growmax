@@ -267,11 +267,12 @@ figure.effect-layla:hover figcaption::after, figure.effect-layla:hover h2, figur
 .outletCode {border: none; font-size: 24px; font-weight: bold; text-decoration: underline; padding: 10px 0px 20px 0px;}
 *:focus {outline: none;}
 #inputContainer{width: 100%;}
-.tab {overflow: hidden; border: none; background-color: #f1f1f1;}
-.tab button {background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 1px 16px; transition: 0.3s;font-size: 17px;}
+.tab {overflow: hidden; border: none; background-color: #f1f1f1; margin-left: -5px; margin-right: -5px;}
+.tab button {background-color: inherit; float: left; border: none; outline: none; cursor: pointer; padding: 0px 16px; transition: 0.3s;font-size: 17px;}
 .tab button:hover {background-color: #ddd;}
 .tab button.active {background-color: #ccc;}
 .tabcontent {display: none; padding: 6px 12px; border: none; solid #ccc; border-top: none;}
+.home {font-size: 36px;}
 @media(max-width:500px ){.qr{margin-left: -50px}
 @media(max-width:1199px ){.logo_area{width:0%}.add_banner{width:580px}.nav-tabs > li{width:32.3%}.photograph_nav li{width:31.5%}
 @media(max-width:991px ){.add_banner{display:none}.logo_area{width:100%}.nav > li > a{padding:8px 8px}.latest_post_container{height:380px;overflow:hidden}#next-button{bottom:-2px}.single_iteam{height:415px}.photograph_nav li{width:47.7%}.related_post .spost_nav li{width:100%}.nav-tabs > li{width:31.9%}.nav-tabs > li > a{font-size:13px;padding-left:0 !important;padding-right:0 !important;text-align:center}}

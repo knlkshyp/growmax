@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="admin.js" defer></script>
 </head>
 
 <body>
-    <form method="post" action="#" id="inputForm">
         <div class="container">
             <div id="header">
                 <div class="row">
@@ -20,17 +20,16 @@
                         <div class="header_top">
                             <div class="header_top_left">
                                 <ul class="top_nav">
-                                    <li><a href="/">#</a></li>
+                                    <li class="home"><a href="/"><i class="fa fa-home"></i></a></li>
                                     <li><a href="/dashboard">Dashboard</a></li>
-                                    <li><a href="/login">Update</a></li>
+                                    <li><a href="/admin">Update</a></li>
                                 </ul>
                             </div>
                             <div class="header_top_right">
                                 <p>
                                     &nbsp;
                                     [
-                                    <a href="/login">Sign Out</a>
-                                    ]
+                                    <a href="/login">Sign Out</a>                              ]
                                     <script>
                                         document.write(new Date().toDateString());
                                     </script>
@@ -68,15 +67,15 @@
                                         <div class="table-responsive table-bordered">
                                             <div class="panel-body">
                                                 <div class="row"
-                                                    style="margin-top: -15px; padding-bottom: 1.5%; padding-left: 0.5% padding-right: 0.5%">
+                                                    style="margin-top: -15px; padding-bottom: 1.5%; padding-left: 0.5%; padding-right: 0.5%";>
                                                     <div class="tab">
-                                                        <button class="tablinks" onclick="add('productItem')">Product
+                                                        <button class="tablinks" id="default" onclick="add(event, 'productItem')">Product
                                                             Item</button>
-                                                        <button class="tablinks" onclick="add('outCode')">Outlet
+                                                        <button class="tablinks" onclick="add(event, 'outCode')">Outlet
                                                             Code</button>
-                                                        <button class="tablinks" onclick="add('empCode')">Employee
+                                                        <button class="tablinks" onclick="add(event, 'empCode')">Employee
                                                             Code</button>
-                                                        <button class="tablinks" onclick="add('adminAccess')">Admin
+                                                        <button class="tablinks" onclick="add(event, 'adminAccess')">Admin
                                                             Access</button>
                                                     </div>
                                                     <div id="productItem" class="tabcontent">
@@ -173,7 +172,6 @@
                 </div>
             </div>
         </div>
-    </form>
 </body>
 
 </html>
