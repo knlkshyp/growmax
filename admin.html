@@ -13,165 +13,152 @@
 </head>
 
 <body>
-        <div class="container">
-            <div id="header">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="header_top">
-                            <div class="header_top_left">
-                                <ul class="top_nav">
-                                    <li class="home"><a href="/"><i class="fa fa-home"></i></a></li>
-                                    <li><a href="/dashboard">Dashboard</a></li>
-                                    <li><a href="/admin">Update</a></li>
-                                </ul>
-                            </div>
-                            <div class="header_top_right">
-                                <p>
-                                    &nbsp;
-                                    [
-                                    <a href="/login">Sign Out</a>                              ]
-                                    <script>
-                                        document.write(new Date().toDateString());
-                                    </script>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="header_bottom">
-                            <div class="add_banner">
-                                <a href="#">
-                                    <img src="banner.jpg" alt="Elysian Corptech" /></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div id="header">
             <div class="row">
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_top">
+                        <div class="header_top_left">
+                            <ul class="top_nav">
+                                <li class="home"><a href="/"><i class="fa fa-home"></i></a></li>
+                                <li><a href="/dashboard">Dashboard</a></li>
+                                <li><a href="/login">Update</a></li>
+                            </ul>
+                        </div>
+                        <div class="header_top_right">
+                            <p>
+                                &nbsp;
+                                [
+                                <a href="/login">Sign Out</a> 
+                                ]
+                                &nbsp;&nbsp;
+                                <script>
+                                    document.write(new Date().toDateString());
+                                </script>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_bottom">
+                        <div class="add_banner">
+                            <a href="#">
+                                <img src="banner.jpg" alt="Elysian Corptech" /></a></div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+            </div>
+        </div>
 
-            <div class="main">
-                <div id="contentSection">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4" id="inputContainer">
-                            <div class="left_content">
-                                <div class="contact_area">
-                                    <div class="panel panel-danger">
-                                        <div class="panel-heading">
-                                            <h2 style="text-align: center">
-                                                <i class="fa fa-user-circle" aria-hidden="true"></i>ADMIN</h2>
-                                        </div>
-                                        <div class="table-responsive table-bordered">
-                                            <div class="panel-body">
-                                                <div class="row"
-                                                    style="margin-top: -15px; padding-bottom: 1.5%; padding-left: 0.5%; padding-right: 0.5%";>
-                                                    <div class="tab">
-                                                        <button class="tablinks" id="default" onclick="add(event, 'productItem')">Product
-                                                            Item</button>
-                                                        <button class="tablinks" onclick="add(event, 'outCode')">Outlet
-                                                            Code</button>
-                                                        <button class="tablinks" onclick="add(event, 'empCode')">Employee
-                                                            Code</button>
-                                                        <button class="tablinks" onclick="add(event, 'adminAccess')">Admin
-                                                            Access</button>
-                                                    </div>
-                                                    <div id="productItem" class="tabcontent">
-                                                        <h3>Add Product Item</h3>
-                                                        <div class="row"
-                                                            style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                                <input type="submit" name="ctl00$MainContent$btnLogin"
-                                                                    value="Update" onclick=""
-                                                                    id="ctl00_MainContent_btnUpdate"
-                                                                    class="btn btn-danger" />
+        <div class="main">
+            <div id="contentSection">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4" id="inputContainer">
+                        <div class="left_content">
+                            <div class="contact_area">
+                                <div class="panel panel-danger">
+                                    <div class="panel-heading">
+                                        <h2 style="text-align: center">
+                                            <i class="fa fa-user-circle" aria-hidden="true"></i>ADMIN</h2>
+                                    </div>
+                                    <div class="table-responsive table-bordered">
+                                        <div class="panel-body">
+                                            <div class="row"
+                                                style="margin-top: -15px; padding-bottom: 1.5%; padding-left: 0.5%; padding-right: 0.5%"
+                                                ;>
+                                                <div class="tab">
+                                                    <button class="tablinks" id="default"
+                                                        onclick="add(event, 'productItem')">Product
+                                                        Item</button>
+                                                    <button class="tablinks" onclick="add(event, 'outCode')">Outlet
+                                                        Code</button>
+                                                    <button class="tablinks" onclick="add(event, 'empCode')">Employee
+                                                        Code</button>
+                                                    <button class="tablinks" onclick="add(event, 'adminAccess')">Admin
+                                                        Access</button>
+                                                </div>
+                                                <div id="productItem" class="tabcontent">
+                                                    <h3>Add Product Item</h3>
+                                                    <div class="row"
+                                                        style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <input type="submit" name="update" value="Update" onclick=""
+                                                                class="btn btn-danger" />
 
-                                                                <input type="reset" name="ctl00$MainContent$btnClear"
-                                                                    value="Reset" onclick=""
-                                                                    id="ctl00_MainContent_btnReset"
-                                                                    class="btn btn-danger" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="outCode" class="tabcontent">
-                                                        <h3>Add Outlet Code</h3>
-                                                        <div class="row"
-                                                            style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                                <input type="submit" name="ctl00$MainContent$btnLogin"
-                                                                    value="Update" onclick=""
-                                                                    id="ctl00_MainContent_btnUpdate"
-                                                                    class="btn btn-danger" />
-
-                                                                <input type="reset" name="ctl00$MainContent$btnClear"
-                                                                    value="Reset" onclick=""
-                                                                    id="ctl00_MainContent_btnReset"
-                                                                    class="btn btn-danger" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="empCode" class="tabcontent">
-                                                        <h3>Add Employee Code</h3>
-                                                        <div class="row"
-                                                            style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                                <input type="submit" name="ctl00$MainContent$btnLogin"
-                                                                    value="Update" onclick=""
-                                                                    id="ctl00_MainContent_btnUpdate"
-                                                                    class="btn btn-danger" />
-
-                                                                <input type="reset" name="ctl00$MainContent$btnClear"
-                                                                    value="Reset" onclick=""
-                                                                    id="ctl00_MainContent_btnReset"
-                                                                    class="btn btn-danger" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="adminAccess" class="tabcontent">
-                                                        <h3>Add Admin</h3>
-                                                        <div class="row"
-                                                            style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                                                <input type="submit" name="ctl00$MainContent$btnLogin"
-                                                                    value="Update" onclick=""
-                                                                    id="ctl00_MainContent_btnUpdate"
-                                                                    class="btn btn-danger" />
-
-                                                                <input type="reset" name="ctl00$MainContent$btnClear"
-                                                                    value="Reset" onclick=""
-                                                                    id="ctl00_MainContent_btnReset"
-                                                                    class="btn btn-danger" />
-                                                            </div>
+                                                            <input type="reset" name="" value="Reset" onclick=""
+                                                                class="btn btn-danger" />
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div id="outCode" class="tabcontent">
+                                                    <h3>Add Outlet Code</h3>
+                                                    <div class="row"
+                                                        style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <input type="submit" name="update" value="Update" onclick=""
+                                                                class="btn btn-danger" />
 
+                                                            <input type="reset" name="" value="Reset" onclick=""
+                                                                class="btn btn-danger" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="empCode" class="tabcontent">
+                                                    <h3>Add Employee Code</h3>
+                                                    <div class="row"
+                                                        style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <input type="submit" name="update" value="Update" onclick=""
+                                                                class="btn btn-danger" />
+
+                                                            <input type="reset" name="" value="Reset" onclick=""
+                                                                class="btn btn-danger" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="adminAccess" class="tabcontent">
+                                                    <h3>Add Admin</h3>
+                                                    <div class="row"
+                                                        style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <input type="submit" name="update" value="Update" onclick=""
+                                                                class="btn btn-danger" />
+
+                                                            <input type="reset" name="clear" value="Reset" onclick=""
+                                                                class="btn btn-danger" />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+
                                         </div>
-                                        <div class="panel-footer">
-                                            <span id="ctl00_MainContent_Label1"
-                                                style="display:inline-block;color:Red;width:302px;"></span>
-                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <p style="display:inline-block;color:Red;width:302px;"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4">
-                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
                     </div>
                 </div>
             </div>
-            <div id="footer">
-                <div class="footer_bottom">
-                    <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
-                    <p class="developer">Software Solutions Provided by <a
-                            href="https://www.elysiancorptech.com/">Elysian Corptech</a>
-                    </p>
-                </div>
+        </div>
+        <div id="footer">
+            <div class="footer_bottom">
+                <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
+                <p class="developer">Software Solutions Provided by <a href="https://www.elysiancorptech.com/">Elysian
+                        Corptech</a>
+                </p>
             </div>
         </div>
+    </div>
 </body>
 
 </html>
