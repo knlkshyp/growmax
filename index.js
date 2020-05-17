@@ -66,7 +66,7 @@ app.post('/admin', (request, response) => {
 });
 
 app.get('/empCodes', (request, response) => {
-    EmpCodeInfo.find({}, {'employeeCode': 1, '_id': 0, 'employeeName': 0, 'zone': 0}, (err, empCodes) => {
+    EmpCodeInfo.find({}, {'employeeCode': 1}, (err, empCodes) => {
         if (err) return console.error(err);
         response.status(200).send(empCodes);
     });

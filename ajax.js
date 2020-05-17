@@ -8,7 +8,7 @@ async function getEmpCode() {
     const json = await response.json();
     for (index = 0; index < json.length; index++) {
         const option = document.createElement('OPTION');
-        option.text = json[index].empCode;
+        option.text = json[index].employeeCode;
         empCode.add(option);
     }
 }
