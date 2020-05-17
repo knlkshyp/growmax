@@ -2,7 +2,13 @@ const mongoose = require('mongoose'),
         Schema = mongoose.Schema;
 
 const empCodeSchema = new Schema({
-    empCode: {
+    employeeCode: {
+        type: String
+    },
+    employeeName: {
+        type: String
+    },
+    zone: {
         type: String
     }
 });
