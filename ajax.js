@@ -1,16 +1,16 @@
-const empCode = document.getElementById('empCode');
-
-
-async function getEmpCode() {
-    const response = await fetch('/empCodes', {
+async function getData(url, field, id) {
+    const element = document.getElementById(id);
+    const response = await fetch(`/${url}`, {
         method: 'GET'
       });
     const json = await response.json();
     for (index = 0; index < json.length; index++) {
         const option = document.createElement('OPTION');
-        option.text = json[index].employeeCode;
-        empCode.add(option);
+        option.text = json[index][`${field}`];
+        element.add(option);
     }
 }
 
-getEmpCode();
+getData("empCodes", "employeeCode", "empCode");
+getData("distrib", "distribCode", "distribCode");
+getData("product", "name", "productList");

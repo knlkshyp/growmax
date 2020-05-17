@@ -2,7 +2,9 @@ const app = require('./serverConfig.js'),
         growmax = require('./mongo/config.js'),
             RetailInfo = require('./mongo/retailInfo.js'),
                 OrderInfo = require('./mongo/orderInfo.js'),
-                    EmpCodeInfo = require('./mongo/empCodeInfo.js');
+                    EmpCodeInfo = require('./mongo/empCodeInfo.js'),
+                        DistribInfo = require('./mongo/distribInfo.js'),
+                            ProductInfo = require('./mongo/productInfo.js');
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
@@ -69,5 +71,26 @@ app.get('/empCodes', (request, response) => {
     EmpCodeInfo.find({}, {'employeeCode': 1}, (err, empCodes) => {
         if (err) return console.error(err);
         response.status(200).send(empCodes);
+    });
+});
+
+app.get('/distrib', (request, response) => {
+    DistribInfo.find({}, {'distribCode': 1}, (err, distribCodes) => {
+        if (err) return console.error(err);
+        response.status(200).send(distribCodes);
+    });
+});
+
+app.get('/product', (request, response) => {
+    ProductInfo.find({}, {'name': 1}, (err, productNames) => {
+        if (err) return console.error(err);
+        response.status(200).send(productNames);
+    });
+});
+
+app.get('/productCost', (request, response) => {
+    ProductInfo.find({}, {'cost': 1}, (err, productCosts) => {
+        if (err) return console.error(err);
+        response.status(200).send(productCosts);
     });
 });

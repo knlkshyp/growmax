@@ -74,6 +74,13 @@ function areaChart(containerId) {
     chart.draw();
 }
 
+async function getProductInfo() {
+    const response = await fetch("/productCost", {
+        method: 'GET'
+      });
+    const json = await response.json();
+}
+
 barGraph("avg-daily-sales");
 barGraph("avg-sales-per-outlet");
 barGraph("total-inventory");
