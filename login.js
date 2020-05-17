@@ -1,6 +1,5 @@
 var attempt = 3;
 function validate() {
-    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
     var username = document.getElementById("adminUserId").value;
     var password = document.getElementById("adminPassword").value;
     if (username == "admin" && password == "admin") {
