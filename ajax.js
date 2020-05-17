@@ -1,11 +1,16 @@
-// const url = 'http://localhost:3000';
-// let button = document.getElementById('register');
+const empCode = document.getElementById('empCode');
 
-// button.addEventListener('click', () => {
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('POST', `${url}/data`, true);
-//     xhr.onload = () => {
-//         console.log(xhr.response);
-//     };
-//     xhr.send();
-// });
+
+async function getEmpCode() {
+    const response = await fetch('/empCodes', {
+        method: 'GET'
+      });
+    const json = await response.json();
+    for (index = 0; index < json.length; index++) {
+        const option = document.createElement('OPTION');
+        option.text = json[index].empCode;
+        empCode.add(option);
+    }
+}
+
+getEmpCode();

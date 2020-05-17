@@ -1,7 +1,8 @@
-const RetailInfo = require('./mongo/retailInfo.js'),
-        app = require('./serverConfig.js'),
-            growmax = require('./mongo/config.js'),
-                OrderInfo = require('./mongo/orderInfo.js');
+const app = require('./serverConfig.js'),
+        growmax = require('./mongo/config.js'),
+            RetailInfo = require('./mongo/retailInfo.js'),
+                OrderInfo = require('./mongo/orderInfo.js'),
+                    EmpCodeInfo = require('./mongo/empCodeInfo.js');
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
@@ -62,4 +63,11 @@ app.get('/login', (request, response) => {
 
 app.post('/admin', (request, response) => {
     response.sendFile(__dirname + '/admin.html');
+});
+
+app.get('/empCodes', (request, response) => {
+    EmpCodeInfo.find({}, {'empCode': 1, '_id': 0}, (err, empCodes) => {
+        if (err) return console.error(err);
+        response.status(200).send(empCodes);
+    });
 });
