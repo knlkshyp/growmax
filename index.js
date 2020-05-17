@@ -2,7 +2,7 @@ const app = require('./serverConfig.js'),
         growmax = require('./mongo/config.js'),
             RetailInfo = require('./mongo/retailInfo.js'),
                 OrderInfo = require('./mongo/orderInfo.js'),
-                    EmpCodeInfo = require('./mongo/empCodeInfo.js'),
+                    EmployeeCode = require('./mongo/empCodeInfo.js'),
                         DistribInfo = require('./mongo/distribInfo.js'),
                             ProductInfo = require('./mongo/productInfo.js');
 
@@ -68,7 +68,7 @@ app.post('/admin', (request, response) => {
 });
 
 app.get('/empCodes', (request, response) => {
-    EmpCodeInfo.find({}, {'employeeCode': 1}, (err, empCodes) => {
+    EmployeeCode.find({}, {'employeeCode': 1}, (err, empCodes) => {
         if (err) return console.error(err);
         response.status(200).send(empCodes);
     });
