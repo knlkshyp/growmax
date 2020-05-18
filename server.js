@@ -23,7 +23,7 @@ app.post('/retail-data', (request, response) => {
     });
 
     retailInfo.save().then(() => {
-            response.status(200).redirect('/');
+            response.status(200).redirect('/success');
         }, (err) => {
             response.status(400).send(err);
     });
@@ -48,7 +48,7 @@ app.post('/order-data', (request, response) => {
     });
 
     orderInfo.save().then(() => {
-            response.status(200).redirect('/order');
+            response.status(200).redirect('/success');
         }, (err) => {
             response.status(400).send(err);
     });
@@ -93,4 +93,12 @@ app.get('/productCost', (request, response) => {
         if (err) return console.error(err);
         response.status(200).send(productCosts);
     });
+});
+
+app.get('/success', (request, response) => {
+    response.sendFile(__dirname + '/success.html');
+});
+
+app.get('/failure', (request, response) => {
+    response.sendFile(__dirname + '/failure.html');
 });
