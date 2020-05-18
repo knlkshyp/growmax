@@ -1,25 +1,32 @@
-function getValueForDailySales() {
-    var cost = [ 200, 300, 400, 500, 600 ];
-    var volume = [ 7, 8, 9, 10, 11];
-    var DailySalesValue = [];
-    for(index=0;index<cost.length;index++) {
-        DailySalesValue[index] = cost[index] * volume[index];
+async function getValueForDailySales() {
+    let cost = [], volume = [], name = [], DailySalesValue = [];
+    let map = new Map();
+    let info = await salesInfo();
+    for (index = 0; index < info.length; index++) {
+        volume.push(info[index][1]);
+        name.push(info[index][0]);
     }
-    return DailySalesValue;
+    cost = await productDetail(name);
+    for(index=0; index < cost.length; index++) {
+        DailySalesValue[index] = cost[index] * volume[index];
+        map.set(name[index], DailySalesValue[index]);
+    }
+    return map;
 }
 
-function barGraph(containerId) {
-    var values = getValueForDailySales();
-    var data = [
-        ["P1", values[0]],
-        ["P2", values[1]],
-        ["P3", values[2]],
-        ["P4", values[3]],
-        ["P5", values[4]]
+async function barGraph(containerId) {
+    let map = await getValueForDailySales();
+    let keys = map.keys();
+    let values = map.values();
+    let data = [
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value]
     ];
-
     chart = anychart.column();
-    var series = chart.column(data);
+    chart.column(data);
     chart.container(containerId);
     chart.draw();
 }
@@ -74,20 +81,35 @@ function areaChart(containerId) {
     chart.draw();
 }
 
-async function getProductInfo() {
-    const response = await fetch("/productCost", {
+async function salesInfo() {
+    const response = await fetch("/sales-info", {
         method: 'GET'
       });
     const json = await response.json();
+    return json;
 }
 
+async function productDetail(name) {
+    const response = await fetch("/product-detail", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(name)
+      });
+    const json = await response.json();
+    return json;
+}
+
+productDetail
+
 barGraph("avg-daily-sales");
-barGraph("avg-sales-per-outlet");
-barGraph("total-inventory");
-barGraph("total-sales");
+// barGraph("avg-sales-per-outlet");
+// barGraph("total-inventory");
+// barGraph("total-sales");
 
-areaChart("avg-units-per-outlet");
-areaChart("total-leads");
+// areaChart("avg-units-per-outlet");
+// areaChart("total-leads");
 
-stepLineChart("avg-order-time");
-stepLineChart("profit-margin");
+// stepLineChart("avg-order-time");
+// stepLineChart("profit-margin");

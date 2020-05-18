@@ -1,4 +1,4 @@
-const app = require('./serverConfig.js'),
+let app = require('./serverConfig.js'),
         growmax = require('./mongo/config.js'),
             RetailInfo = require('./mongo/retailInfo.js'),
                 OrderInfo = require('./mongo/orderInfo.js'),
@@ -11,7 +11,7 @@ app.get('/', (request, response) => {
 });   
 
 app.post('/retail-data', (request, response) => {
-    const retailInfo = new RetailInfo({
+    let retailInfo = new RetailInfo({
         empCode: request.body.empCode,
         outletCode: request.body.outletCode,
         outletName: request.body.outletName,
@@ -38,7 +38,7 @@ app.get('/order', (request, response) => {
 });
 
 app.post('/order-data', (request, response) => {
-    const orderInfo = new OrderInfo({
+    let orderInfo = new OrderInfo({
         empCode: request.body.empCode,
         distribCode: request.body.distribCode,
         outletCode: request.body.outletCode,
@@ -88,11 +88,46 @@ app.get('/product', (request, response) => {
     });
 });
 
-app.get('/productCost', (request, response) => {
-    ProductInfo.find({}, {'cost': 1}, (err, productCosts) => {
-        if (err) return console.error(err);
-        response.status(200).send(productCosts);
-    });
+app.get('/sales-info', (request, response) => {
+    let dataMap = new Map();
+    async function getDistinctProduct() {
+        let distinctProducts = await OrderInfo.distinct("productItem");
+        for (let product of distinctProducts) {
+            let quantity = await getTotalQuantity(product);
+            dataMap.set(product, quantity); 
+        }   
+        response.status(200).send(JSON.stringify([...dataMap]));
+    }
+
+    async function getTotalQuantity(distinctProduct) {
+        let quantity = 0;
+        let documents = await OrderInfo.find({productItem: `${distinctProduct}`});
+        for (let document of documents) {
+            let index = document.productItem.indexOf(`${distinctProduct}`);
+            quantity = quantity + parseInt(document.quantity[index]);
+        } 
+        return quantity;
+    }
+
+    getDistinctProduct();
+});
+
+app.post('/product-detail', (request, response) => {
+    let cost = [], name = request.body;
+    async function getProductInfo() {
+        for (const unit of name) {
+            let info = await ProductInfo.find({name: `${unit}`});
+            await getProductCost(info);
+        }
+        response.status(200).send(JSON.stringify([...cost]));
+    }
+
+    async function getProductCost(info) {
+        cost.push(parseInt(info[0]['cost']));
+        
+    }
+
+    getProductInfo();
 });
 
 app.get('/success', (request, response) => {
