@@ -14,7 +14,23 @@ async function getValueForDailySales() {
     return map;
 }
 
-async function barGraph(containerId) {
+async function getValueForAvgDailySales() {
+    let cost = [], volume = [], name = [], DailySalesValue = [];
+    let map = new Map();
+    let info = await salesInfo();
+    for (index = 0; index < info.length; index++) {
+        volume.push(info[index][1]);
+        name.push(info[index][0]);
+    }
+    cost = await productDetail(name);
+    for(index=0; index < cost.length; index++) {
+        DailySalesValue[index] = (cost[index] * volume[index])/365;
+        map.set(name[index], DailySalesValue[index]);
+    }
+    return map;
+}
+
+async function barGraphForSales(containerId) {
     let map = await getValueForDailySales();
     let keys = map.keys();
     let values = map.values();
@@ -31,7 +47,24 @@ async function barGraph(containerId) {
     chart.draw();
 }
 
-function avgUnitsPerOutlet() {
+async function barGraphForAvgSales(containerId) {
+    let map = await getValueForAvgDailySales();
+    let keys = map.keys();
+    let values = map.values();
+    let data = [
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value],
+        [keys.next().value, values.next().value]
+    ];
+    chart = anychart.column();
+    chart.column(data);
+    chart.container(containerId);
+    chart.draw();
+}
+
+function barGraph(containerId) {
     var data = [
         ["January", 10000],
         ["February", 12000],
@@ -40,9 +73,9 @@ function avgUnitsPerOutlet() {
         ["May", 9000]
     ];
 
-    chart = anychart.line();
-    var series = chart.line(data);
-    chart.container("avg-units-per-outlet");
+    chart = anychart.column();
+    var series = chart.column(data);
+    chart.container(containerId);
     chart.draw();
 }
 
@@ -103,13 +136,13 @@ async function productDetail(name) {
 
 productDetail
 
-barGraph("avg-daily-sales");
-// barGraph("avg-sales-per-outlet");
-// barGraph("total-inventory");
-// barGraph("total-sales");
+barGraphForSales("daily-sales");
+barGraphForAvgSales("avg-daily-sales");
+barGraph("total-inventory");
+barGraph("total-sales");
 
-// areaChart("avg-units-per-outlet");
-// areaChart("total-leads");
+areaChart("avg-units-per-outlet");
+areaChart("total-leads");
 
-// stepLineChart("avg-order-time");
-// stepLineChart("profit-margin");
+stepLineChart("avg-order-time");
+stepLineChart("profit-margin");
