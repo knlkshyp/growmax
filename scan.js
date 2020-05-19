@@ -16,11 +16,11 @@ const setFeedback = message => {
     feedbackContainer.innerHTML = message;
 }
 const qrCodeSuccessCallback = qrCodeMessage => {
-    if (lastMessageFound === qrCodeMessage.toLocaleLowerCase()) {
+    if (lastMessageFound === qrCodeMessage) {
         return;
     }
     ++codesFound;
-    lastMessageFound = qrCodeMessage.toLocaleLowerCase();
+    lastMessageFound = qrCodeMessage;
     document.getElementById("outletCode").value = lastMessageFound;
     stopScan();
 }
