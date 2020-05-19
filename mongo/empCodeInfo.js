@@ -13,4 +13,4 @@ const empCodeSchema = new Schema({
     }
 });
 
-const EmployeeCode = module.exports = mongoose.model('EmployeeCode', empCodeSchema);
+const EmployeeCode = module.exports = mongoose.model('EmpCodeInfo', empCodeSchema);
