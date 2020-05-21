@@ -4,7 +4,8 @@ let app = require('./serverConfig.js'),
                 OrderInfo = require('./mongo/orderInfo.js'),
                     EmployeeCode = require('./mongo/empCodeInfo.js'),
                         DistribInfo = require('./mongo/distribInfo.js'),
-                            ProductInfo = require('./mongo/productInfo.js');
+                            ProductInfo = require('./mongo/productInfo.js'),
+                                OutletCode = require('./mongo/outletCode.js');
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
@@ -85,6 +86,13 @@ app.get('/product', (request, response) => {
     ProductInfo.find({}, {'name': 1}, (err, productNames) => {
         if (err) return console.error(err);
         response.status(200).send(productNames);
+    });
+});
+
+app.get('/outCode', (request, response) => {
+    OutletCode.find({}, {'outletCode': 1}, (err, outletCodes) => {
+        if (err) return console.error(err);
+        response.status(200).send(outletCodes);
     });
 });
 

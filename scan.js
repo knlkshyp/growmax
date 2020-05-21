@@ -15,12 +15,16 @@ const setPlaceholder = () => {
 const setFeedback = message => {
     feedbackContainer.innerHTML = message;
 }
-const qrCodeSuccessCallback = qrCodeMessage => {
+async function qrCodeSuccessCallback(qrCodeMessage) {
     if (lastMessageFound === qrCodeMessage) {
         return;
     }
     ++codesFound;
     lastMessageFound = qrCodeMessage;
+    const response = await fetch("/outCode", {
+        method: 'GET'
+    });
+    const json = await response.json();
     document.getElementById("outletCode").value = lastMessageFound;
     stopScan();
 }
@@ -62,6 +66,7 @@ document.querySelectorAll("input[name='scan-type']").forEach(input => {
 });
 openCamera = (element) => {
     requestPermission();
+    stopScan();
 };
 requestPermission = () => {
     Html5Qrcode.getCameras().then(cameras => {

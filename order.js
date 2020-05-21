@@ -20,13 +20,14 @@ function addList() {
         rowItem.setAttribute('type', 'text');
         rowItem.setAttribute('name', 'productItem');
         rowItem.setAttribute('value', productItem);
-        rowItem.readOnly = true; 
+        rowItem.readOnly = true;
         rowItem.innerHTML = productItem;
         const quantity = document.createElement('INPUT');
         quantity.setAttribute('class', 'row-quantity');
         quantity.setAttribute('type', 'text');
         quantity.setAttribute('name', 'quantity');
         quantity.setAttribute('placeholder', 'Quantity');
+        quantity.required = true;
         const removeButton = document.createElement('INPUT');
         removeButton.setAttribute('type', 'button');
         removeButton.setAttribute('id', 'remove');
@@ -40,17 +41,9 @@ function addList() {
     }
 }
 
-function showList() {
-    // const rowItems = document.getElementsByClassName('row-items');
-    // const rowQuantity = document.getElementsByClassName('row-quantity');
-    // for (index = 0; index < rowItems.length; index++) {
-    //     console.log(`Item name : ${rowItems[index].innerHTML} and its quantity : ${rowQuantity[index].value}`);
-    // }
-}
-
 function resetFields() {
     stopScan();
-    while (dynamicList.hasChildNodes()) {  
+    while (dynamicList.hasChildNodes()) {
         dynamicList.removeChild(dynamicList.firstChild);
     }
     rowSet.clear();
