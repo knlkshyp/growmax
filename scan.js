@@ -2,10 +2,7 @@ const scanRegionCamera = document.getElementById('scanTypeCamera');
 const scanRegionFile = document.getElementById('scanTypeFile');
 const qrFileInput = document.getElementById('qrInputFile');
 const feedbackContainer = document.getElementById('feedback');
-// declaration of html5 qrcode
 const html5QrCode = new Html5Qrcode("qr");
-var codesFound = 0;
-var lastMessageFound = null;
 const setPlaceholder = () => {
     const placeholder = document.createElement("div");
     placeholder.innerHTML = "";
@@ -16,17 +13,22 @@ const setFeedback = message => {
     feedbackContainer.innerHTML = message;
 }
 async function qrCodeSuccessCallback(qrCodeMessage) {
-    if (lastMessageFound === qrCodeMessage) {
-        return;
-    }
-    ++codesFound;
-    lastMessageFound = qrCodeMessage;
     const response = await fetch("/outCode", {
         method: 'GET'
     });
     const json = await response.json();
-    document.getElementById("outletCode").value = lastMessageFound;
-    stopScan();
+    for (index = 0; index < json.length; index++) {
+        let value = json[index]["outletCode"];
+        if(value==qrCodeMessage){
+            document.getElementById("outletCode").value = qrCodeMessage;
+            stopScan();
+            return;
+        } else {
+            alert("Invalid code");
+            return;
+        }
+    }
+      
 }
 const videoErrorCallback = message => {
     setFeedback(`Video Error, error = ${message}`);
