@@ -13,3 +13,13 @@ function add(evt, operation) {
 }
 
 document.getElementById("default").click();
+
+function confirmPassword() {
+  let password = document.getElementById("adminPassword").value;
+  let confirmPassword = document.getElementById("adminConfirmPassword").value;
+  if(confirmPassword==password) {
+    return;
+  } else {
+    alert("Password doesn't match");
+  }
+}
