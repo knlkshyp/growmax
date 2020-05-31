@@ -19,7 +19,7 @@ async function qrCodeSuccessCallback(qrCodeMessage) {
     const json = await response.json();
     for (index = 0; index < json.length; index++) {
         let value = json[index]["outletCode"];
-        if(value==qrCodeMessage){
+        if(value == qrCodeMessage){
             document.getElementById("outletCode").value = qrCodeMessage;
             stopScan();
             return;

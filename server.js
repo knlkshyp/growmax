@@ -1,4 +1,4 @@
-let app = require('./serverConfig.js'),
+let { app, upload, xlsx, file} = require('./serverConfig.js'),
         growmax = require('./mongo/config.js'),
             RetailInfo = require('./mongo/retailInfo.js'),
                 OrderInfo = require('./mongo/orderInfo.js'),
@@ -137,6 +137,30 @@ app.post('/product-detail', (request, response) => {
 
     getProductInfo();
 });
+
+app.post('/', (request, response) => {
+    response.send(request.body);
+});
+
+app.post('/outlet-excel', upload.single('outletExcel'), (request, response) => {
+    let excel = xlsx.readFile(`${request.file.filename}`);
+    file.unlink(`${request.file.filename}`, (err) => {});
+    let sheetName = excel.SheetNames[0];
+    let sheet = excel.Sheets[`${sheetName}`];
+    let json = xlsx.utils.sheet_to_json(sheet);
+    for (let index = 0; index < json.length; index++) {
+        let outletCode = json[index]['outletCode'];
+        let object = new OutletCode({
+            outletCode: outletCode
+        });
+        object.save().then(() => {
+            
+        }, (err) => {
+            response.status(400).send(err);
+        });    
+    }
+    response.status(200).redirect('/success');
+})
 
 app.get('/success', (request, response) => {
     response.sendFile(__dirname + '/success.html');
