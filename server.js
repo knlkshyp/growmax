@@ -5,7 +5,8 @@ let app = require('./serverConfig.js'),
                     EmployeeCode = require('./mongo/empCodeInfo.js'),
                         DistribInfo = require('./mongo/distribInfo.js'),
                             ProductInfo = require('./mongo/productInfo.js'),
-                                OutletCode = require('./mongo/outletCode.js');
+                                OutletCode = require('./mongo/outletCode.js'),
+                                    AdminInfo = require('./mongo/adminInfo.js');
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
@@ -24,6 +25,22 @@ app.post('/retail-data', (request, response) => {
     });
 
     retailInfo.save().then(() => {
+            response.status(200).redirect('/success');
+        }, (err) => {
+            response.status(400).send(err);
+    });
+});
+
+app.post('/admin-data', (request, response) => {
+    let adminInfo = new AdminInfo({
+        empCode: request.body.empCode,
+        adminName: request.body.adminName,
+        userId: request.body.userId,
+        password: request.body.password,
+        date: new Date().toDateString()
+    });
+
+    adminInfo.save().then(() => {
             response.status(200).redirect('/success');
         }, (err) => {
             response.status(400).send(err);
