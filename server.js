@@ -47,6 +47,21 @@ app.post('/admin-data', (request, response) => {
     });
 });
 
+app.post('/emp-data', (request, response) => {
+    let empData = new EmployeeCode({
+        employeeCode: request.body.employeeCode,
+        employeeName: request.body.employeeName,
+        zone: request.body.zone,
+        date: new Date().toDateString()
+    });
+
+    empData.save().then(() => {
+            response.status(200).redirect('/success');
+        }, (err) => {
+            response.status(400).send(err);
+    });
+});
+
 app.get('/dashboard', (request, response) => {
     response.sendFile(__dirname + '/dashboard.html');
 });

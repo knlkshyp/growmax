@@ -89,7 +89,10 @@
                                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <form action="#" method="post"
                                                                 enctype="multipart/form-data">
-                                                                <input type="file" name="productExcel" accept="*.xlsx"/>
+                                                                <div class="excel" style="padding-bottom: 2%;">
+                                                                    <input type="file" name="productExcel"
+                                                                        accept="*.xlsx" />
+                                                                </div>
                                                                 <input type="submit" name="upload"
                                                                     value="Upload Product Item"
                                                                     class="btn btn-danger" />
@@ -106,10 +109,12 @@
                                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <form action="outlet-excel" method="post"
                                                                 enctype="multipart/form-data">
-                                                                <input type="file" name="outletExcel" accept="*.xlsx"/>
+                                                                <div class="excel" style="padding-bottom: 2%;">
+                                                                    <input type="file" name="outletExcel"
+                                                                        accept="*.xlsx" />
+                                                                </div>
                                                                 <input type="submit" name="upload"
-                                                                    value="Upload Outlet Code"
-                                                                    class="btn btn-danger"/>
+                                                                    value="Upload Outlet Code" class="btn btn-danger" />
                                                                 <input type="reset" name="" value="Reset"
                                                                     class="btn btn-danger" />
                                                             </form>
@@ -117,156 +122,161 @@
                                                     </div>
                                                 </div>
                                                 <div id="empCode" class="tabcontent">
-                                                    <div class="row" style="padding-bottom: 2%; padding-top: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3"
-                                                            style="text-align: left">
-                                                            <label for="empCode">Employee Code*</label>
+                                                    <form action="/emp-data" method="post" name="empCodeForm">
+                                                        <div class="row" style="padding-bottom: 2%; padding-top: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="empCode">Employee Code*</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input id="empCode" name="employeeCode" type="text"
+                                                                    class="form-control" style="resize: none"
+                                                                    required />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input id="empCode" name="employeeCode" type="text"
-                                                                class="form-control" style="resize: none" required />
+                                                        <div class="row" style="padding-bottom: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="empName">Employee Name*</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input name="employeeName" type="text" maxlength="50"
+                                                                    id="empName" class="form-control" required />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row" style="padding-bottom: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3"
-                                                            style="text-align: left">
-                                                            <label for="empName">Employee Name*</label>
+                                                        <div class="row" style="padding-bottom: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="zone">Zone</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <select id="zone" class="form-control" name="zone">
+                                                                    <option value="0" selected="selected">
+                                                                        ----------select----------</option>
+                                                                    <option value="209">Arariya</option>
+                                                                    <option value="240">Arwal</option>
+                                                                    <option value="235">Aurangabad</option>
+                                                                    <option value="225">Banka</option>
+                                                                    <option value="222">Begusarai</option>
+                                                                    <option value="224">Bhagalpur</option>
+                                                                    <option value="231">Bhojpur</option>
+                                                                    <option value="232">Buxer</option>
+                                                                    <option value="215">Darbhanga</option>
+                                                                    <option value="236">Gaya</option>
+                                                                    <option value="217">Gopalganj</option>
+                                                                    <option value="238">Jamui</option>
+                                                                    <option value="239">Jahanabad</option>
+                                                                    <option value="233">Kaimur</option>
+                                                                    <option value="212">Katihar</option>
+                                                                    <option value="223">Khagariya</option>
+                                                                    <option value="210">Kisanganj</option>
+                                                                    <option value="227">Lakhisarai</option>
+                                                                    <option value="213">Madhepura</option>
+                                                                    <option value="207">Madhubani</option>
+                                                                    <option value="226">Munger</option>
+                                                                    <option value="216">Mujaffarpur</option>
+                                                                    <option value="229">Nalanda</option>
+                                                                    <option value="237">Navada</option>
+                                                                    <option value="203">Paschhim Champaran</option>
+                                                                    <option value="230">Patna</option>
+                                                                    <option value="204">Purvi Champaran</option>
+                                                                    <option value="211">Purnea</option>
+                                                                    <option value="234">Rohtas</option>
+                                                                    <option value="214">Saharsa</option>
+                                                                    <option value="221">Samastipur</option>
+                                                                    <option value="219">Saran</option>
+                                                                    <option value="228">Sheikhpura</option>
+                                                                    <option value="205">Shivhar</option>
+                                                                    <option value="206">Sitamadhi</option>
+                                                                    <option value="218">Sivan</option>
+                                                                    <option value="208">Supaul</option>
+                                                                    <option value="220">Vaishali</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input name="employeeName" type="text" maxlength="50"
-                                                                id="empName" class="form-control" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="row" style="padding-bottom: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3"
-                                                            style="text-align: left">
-                                                            <label for="zone">Zone</label>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <select id="zone" class="form-control" name="zone">
-                                                                <option value="0" selected="selected">
-                                                                    ----------select----------</option>
-                                                                <option value="209">Arariya</option>
-                                                                <option value="240">Arwal</option>
-                                                                <option value="235">Aurangabad</option>
-                                                                <option value="225">Banka</option>
-                                                                <option value="222">Begusarai</option>
-                                                                <option value="224">Bhagalpur</option>
-                                                                <option value="231">Bhojpur</option>
-                                                                <option value="232">Buxer</option>
-                                                                <option value="215">Darbhanga</option>
-                                                                <option value="236">Gaya</option>
-                                                                <option value="217">Gopalganj</option>
-                                                                <option value="238">Jamui</option>
-                                                                <option value="239">Jahanabad</option>
-                                                                <option value="233">Kaimur</option>
-                                                                <option value="212">Katihar</option>
-                                                                <option value="223">Khagariya</option>
-                                                                <option value="210">Kisanganj</option>
-                                                                <option value="227">Lakhisarai</option>
-                                                                <option value="213">Madhepura</option>
-                                                                <option value="207">Madhubani</option>
-                                                                <option value="226">Munger</option>
-                                                                <option value="216">Mujaffarpur</option>
-                                                                <option value="229">Nalanda</option>
-                                                                <option value="237">Navada</option>
-                                                                <option value="203">Paschhim Champaran</option>
-                                                                <option value="230">Patna</option>
-                                                                <option value="204">Purvi Champaran</option>
-                                                                <option value="211">Purnea</option>
-                                                                <option value="234">Rohtas</option>
-                                                                <option value="214">Saharsa</option>
-                                                                <option value="221">Samastipur</option>
-                                                                <option value="219">Saran</option>
-                                                                <option value="228">Sheikhpura</option>
-                                                                <option value="205">Shivhar</option>
-                                                                <option value="206">Sitamadhi</option>
-                                                                <option value="218">Sivan</option>
-                                                                <option value="208">Supaul</option>
-                                                                <option value="220">Vaishali</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row"
-                                                        style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 200px;">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                                            <input type="submit" name="update" value="Update" onclick=""
-                                                                class="btn btn-danger" />
+                                                        <div class="row"
+                                                            style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 200px;">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input type="submit" name="update" value="Update"
+                                                                    onclick="" class="btn btn-danger" />
 
-                                                            <input type="reset" name="" value="Reset" onclick=""
-                                                                class="btn btn-danger" />
+                                                                <input type="reset" name="" value="Reset" onclick=""
+                                                                    class="btn btn-danger" />
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                                 <div id="adminAccess" class="tabcontent">
-                                                    <div class="row" style="padding-bottom: 2%; padding-top: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3"
-                                                            style="text-align: left">
-                                                            <label for="empCode">Employee Code*</label>
+                                                    <form action="/admin-data" method="post" name="adminForm">
+                                                        <div class="row" style="padding-bottom: 2%; padding-top: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="empCode">Employee Code*</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input id="empCode" name="employeeCode" type="text"
+                                                                    class="form-control" style="resize: none"
+                                                                    required />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input id="empCode" name="employeeCode" type="text"
-                                                                class="form-control" style="resize: none" required />
+                                                        <div class="row" style="padding-bottom: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="adminName">Admin Name*</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input name="adminName" type="text" maxlength="50"
+                                                                    id="adminName" class="form-control" required />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row" style="padding-bottom: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3"
-                                                            style="text-align: left">
-                                                            <label for="adminName">Admin Name*</label>
+                                                        <div class="row" style="padding-bottom: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="userIdLabel">User Id*</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input name="userId" type="text" maxlength="12"
+                                                                    id="adminUserId" class="form-control" required />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input name="adminName" type="text" maxlength="50"
-                                                                id="adminName" class="form-control" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="row"
-                                                        style="padding-bottom: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                            <label for="userIdLabel">User Id*</label>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input name="userId" type="text" maxlength="12"
-                                                                id="adminUserId" class="form-control"
-                                                                required />
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="row"
-                                                        style="padding-bottom: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                            <label for="passwordLabel"> Password*
-                                                            </label>
+                                                        <div class="row" style="padding-bottom: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="passwordLabel"> Password*
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input name="password" type="text" id="adminPassword"
+                                                                    class="form-control" required />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input name="password" type="text" id="adminPassword"
-                                                                class="form-control" required />
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="row"
-                                                        style="padding-bottom: 2%">
-                                                        <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                            <label for="confirmPasswordLabel"> Confirm Password*
-                                                            </label>
+                                                        <div class="row" style="padding-bottom: 2%">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3"
+                                                                style="text-align: left">
+                                                                <label for="confirmPasswordLabel"> Confirm Password*
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                                <input name="confirmPassword" type="password"
+                                                                    id="adminConfirmPassword" class="form-control"
+                                                                    onchange="confirmPassword()" required />
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3">
-                                                            <input name="confirmPassword" type="password" id="adminConfirmPassword"
-                                                                class="form-control" onchange="confirmPassword()" required />
-                                                        </div>
-                                                    </div>
-                                                    <div class="row"
-                                                        style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12">
-                                                            <input type="submit" name="update" value="Update" onclick=""
-                                                                class="btn btn-danger" />
+                                                        <div class="row"
+                                                            style="padding-bottom: 1.5%; padding-top: 2%; padding-left: 0.5%; margin-left: 75px;">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                <input type="submit" name="update" value="Update"
+                                                                    onclick="" class="btn btn-danger" />
 
-                                                            <input type="reset" name="clear" value="Reset" onclick=""
-                                                                class="btn btn-danger" />
+                                                                <input type="reset" name="clear" value="Reset"
+                                                                    onclick="" class="btn btn-danger" />
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div class="panel-footer">
