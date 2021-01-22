@@ -88,8 +88,7 @@ app.post('/order-data', (request, response) => {
 });
 
 app.get('/distributor', (request, response) => {
-    // response.sendFile(__dirname + '/distributor.html');
-    response.send('Distributor page not found');
+     response.sendFile(__dirname + '/distributor.html');
 });
 
 app.get('/login', (request, response) => {

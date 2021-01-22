@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Growmax</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="qrcode.js" defer></script>
+    <script src="html5qrcode.js" defer></script>
+    <script src="scan.js" defer></script>
+    <script src="ajax.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_top">
+                        <div class="header_top_left">
+                            <ul class="top_nav">
+                                <li><a href="/">Register</a></li>
+                                <li><a href="/order">Order</a></li>
+                                <li><a href="/distributor">Distributor</a></li>
+                            </ul>
+                        </div>
+                        <div class="header_top_right">
+                            <p>
+                                &nbsp;
+                                [
+                                <a href="/login">Admin</a>
+                                ]
+                                &nbsp;&nbsp;
+                                <script>
+                                    document.write(new Date().toDateString());
+                                </script>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="header_bottom">
+                        <div class="add_banner">
+                            <a href="#">
+                                <img src="banner.jpg" alt="Elysian Corptech" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+            </div>
+        </div>
+        <div class="main">
+            <div id="contentSection">
+                <div class="row">
+                    <div class="col-lg-0 col-md-0 col-sm-0">
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="left_content">
+                            <div class="contact_area">
+                                <div class="panel panel-danger">
+                                    <center>
+                                        <h5>
+                                            <b>-----------Distributor Registration Form-----------</b>
+                                        </h5>
+                                    </center>
+                                    <form method="post" action="/retail-data" name="registrationForm">
+                                        <div class="panel-body">
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="firmName">Firm Name*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <input name="firmName" type="text" maxlength="50" id="firmName"
+                                                        class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="ownerName">Owner Name*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <input name="ownerName" type="text" maxlength="50" id="ownerName"
+                                                        class="form-control"
+                                                        style="color:Black;background-color:White;resize: none" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="exp">Experience(in yrs)*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <input name="exp" type="number" maxlength="3" id="exp"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="annualTurnover">Annual Turnover(in INR)*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <input name="annualTurnover" type="number" minlength="1" step="1000" id="pin"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="contactNum">Contact No.*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <input name="contactNum" type="number" maxlength="10" id="contactNum"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="firmAddr">Firm Mailing Address*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <textarea name="firmAddr" id="firmAddr"
+                                                        class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="pin">PIN*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <input name="pin" type="number" maxlength="6" id="pin"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="docs">Documents*</label>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <label for="proof">Proof of Establishment*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <input name="proof" type="file" id="proof"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="gst">GST Certificate*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <input name="gst" type="file" id="gst"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="pan">PAN Card of Authorized Reperesentative*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <input name="pan" type="file" id="pan"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                    <label for="aadhar">Aadhar Card of Authorized Reperesentative*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <input name="aadhar" type="file" id="aadhar"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <label for="cheque">Cancelled Cheque*</label>
+                                                </div>
+                                                <div class="col-lg-3 col-md-3 col-sm-3">
+                                                    <input name="cheque" type="file" id="cheque"
+                                                        class="form-control" placeholder="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-bottom: 3%">
+                                            <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center">
+                                                <input type="submit" value="Register" id="register"
+                                                    class="btn btn-danger" />
+                                                <input type="reset" id="reset" value="Cancel" class="btn btn-danger"/>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="footer_bottom">
+                    <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
+                    <p class="developer">Software Solutions Provided by <a
+                            href="https://www.elysiancorptech.com/">Elysian Corptech</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
