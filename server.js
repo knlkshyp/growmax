@@ -31,6 +31,26 @@ app.post('/retail-data', (request, response) => {
     });
 });
 
+app.post('/distrib-data', (request, response) => {
+    let distribInfo = new DistribInfo({
+        distribCode: request.body.distribCode,
+        firmName: request.body.firmName,
+        ownerName: request.body.ownerName,
+        experience: request.body.experience,
+        annualTurnover: request.body.annualTurnover,
+        contact: request.body.contact,
+        firmAddress: request.body.firmAddress,
+        pin: request.body.pin,
+        date: new Date().toDateString()
+    });
+
+    distribInfo.save().then(() => {
+            response.status(200).redirect('/success');
+        }, (err) => {
+            response.status(400).send(err);
+    });
+});
+
 app.post('/admin-data', (request, response) => {
     let adminInfo = new AdminInfo({
         empCode: request.body.empCode,

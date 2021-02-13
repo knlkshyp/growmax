@@ -4,6 +4,30 @@ const mongoose = require('mongoose'),
 const distribSchema = new Schema({
     distribCode: {
         type: String
+    },
+    firmName: {
+        type: String
+    },
+    ownerName: {
+        type: String
+    },
+    experience: {
+        type: Number
+    },
+    annualTurnover: {
+        type: Number
+    },
+    contact: {
+        type: String
+    },
+    firmAddress: {
+        type: String
+    },
+    pin: {
+        type: String
+    },
+    date: {
+        type: String
     }
 });
 
