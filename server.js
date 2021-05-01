@@ -1,4 +1,4 @@
-let { app, upload, xlsx, file} = require('./serverConfig.js'),
+let { app, upload, xlsx, path, file} = require('./serverConfig.js'),
         growmax = require('./mongo/config.js'),
             RetailInfo = require('./mongo/retailInfo.js'),
                 OrderInfo = require('./mongo/orderInfo.js'),
@@ -10,7 +10,19 @@ let { app, upload, xlsx, file} = require('./serverConfig.js'),
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html');
-});   
+}); 
+
+app.get('/distrib-data', (req, res) => {
+    DistribInfo.find({}, (err, items) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('An error occurred', err);
+        }
+        else {
+            res.render('imagesPage', { items: items });
+        }
+    });
+});
 
 app.post('/retail-data', (request, response) => {
     let retailInfo = new RetailInfo({
@@ -31,7 +43,7 @@ app.post('/retail-data', (request, response) => {
     });
 });
 
-app.post('/distrib-data', (request, response) => {
+app.post('/distrib-data', upload.single('proof'), (request, response) => {
     let distribInfo = new DistribInfo({
         distribCode: request.body.distribCode,
         firmName: request.body.firmName,
@@ -41,13 +53,24 @@ app.post('/distrib-data', (request, response) => {
         contact: request.body.contact,
         firmAddress: request.body.firmAddress,
         pin: request.body.pin,
+        img: {
+            data: file.readFileSync(`${request.file.filename}`),
+            contentType: 'image/png'
+        },
         date: new Date().toDateString()
     });
 
-    distribInfo.save().then(() => {
-            response.status(200).redirect('/success');
-        }, (err) => {
-            response.status(400).send(err);
+    DistribInfo.create(distribInfo, (err, item) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            distribInfo.save().then(() => {
+                response.status(200).redirect('/success');
+            }, (err) => {
+                response.status(400).send(err);
+            });
+        }
     });
 });
 

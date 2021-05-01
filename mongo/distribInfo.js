@@ -26,6 +26,10 @@ const distribSchema = new Schema({
     pin: {
         type: String
     },
+    img:{
+        data: Buffer,
+        contentType: String
+    },
     date: {
         type: String
     }

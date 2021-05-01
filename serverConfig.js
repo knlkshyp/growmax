@@ -4,6 +4,7 @@ const express = require('express'),
                 xlsx = require('xlsx'),
                     path = require('path'),
                         file = require('fs');
+                        
  
                 
 
@@ -25,6 +26,7 @@ const upload = multer({
 app.use(express.static('.'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
+app.set("view engine", "ejs");
 
 app.listen(port, () => {
     console.log(`Server up on port: ${port}`);
