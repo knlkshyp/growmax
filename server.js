@@ -9,7 +9,15 @@ let { app, upload, xlsx, path, file} = require('./serverConfig.js'),
                                     AdminInfo = require('./mongo/adminInfo.js');
 
 app.get('/', (request, response) => {
+    response.sendFile(__dirname + '/login.html');
+}); 
+
+app.get('/register', (request, response) => {
     response.sendFile(__dirname + '/index.html');
+}); 
+
+app.get('/login', (request, response) => {
+    response.sendFile(__dirname + '/adminLogin.html');
 }); 
 
 app.get('/distrib-data', (req, res) => {
@@ -43,7 +51,8 @@ app.post('/retail-data', (request, response) => {
     });
 });
 
-app.post('/distrib-data', upload.single('proof'), (request, response) => {
+// app.post('/distrib-data', upload.array('file', 2), (request, response) => {
+app.post('/distrib-data', upload.single('proof'), (request, response) => {    
     let distribInfo = new DistribInfo({
         distribCode: request.body.distribCode,
         firmName: request.body.firmName,
@@ -54,8 +63,13 @@ app.post('/distrib-data', upload.single('proof'), (request, response) => {
         firmAddress: request.body.firmAddress,
         pin: request.body.pin,
         img: {
+            // data: file.readFileSync(`${request.files.filename}`),
             data: file.readFileSync(`${request.file.filename}`),
-            contentType: 'image/png'
+            contentType: `${request.file.mimetype}`
+        },
+        img1: {
+            data: file.readFileSync(`${request.file.filename}`),
+            contentType: `${request.file.mimetype}`
         },
         date: new Date().toDateString()
     });
@@ -132,10 +146,6 @@ app.post('/order-data', (request, response) => {
 
 app.get('/distributor', (request, response) => {
      response.sendFile(__dirname + '/distributor.html');
-});
-
-app.get('/login', (request, response) => {
-    response.sendFile(__dirname + '/login.html');
 });
 
 app.post('/admin', (request, response) => {
