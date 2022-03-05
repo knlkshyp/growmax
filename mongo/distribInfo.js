@@ -1,6 +1,11 @@
 const mongoose = require('mongoose'),
         Schema = mongoose.Schema;
 
+// const imageSchema = new Schema({
+//     data: Buffer,
+//     contentType: String
+// });
+
 const distribSchema = new Schema({
     distribCode: {
         type: String
@@ -26,12 +31,17 @@ const distribSchema = new Schema({
     pin: {
         type: String
     },
-    img:{
+    // img:[imageSchema],
+    // date: {
+    //     type: String
+    // }
+    img: {
         data: Buffer,
         contentType: String
     },
-    date: {
-        type: String
+    img1: {
+        data: Buffer,
+        contentType: String
     }
 });
 

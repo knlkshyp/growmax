@@ -15,202 +15,204 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="header">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="header_top">
-                        <div class="header_top_left">
-                            <ul class="top_nav">
-                                <li><a href="/">Register</a></li>
-                                <li><a href="/order">Order</a></li>
-                                <li><a href="/distributor">Distributor</a></li>
-                            </ul>
-                        </div>
-                        <div class="header_top_right">
-                            <p>
-                                &nbsp;
-                                [
-                                <a href="/login">Admin</a>
-                                ]
-                                &nbsp;&nbsp;
-                                <script>
-                                    document.write(new Date().toDateString());
-                                </script>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="header_bottom">
-                        <div class="add_banner">
-                            <a href="#">
-                                <img src="banner.jfif" alt="Elysian Corptech" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <header id="header" class="m-2">
+        <div class="container">
+            <a href="login.html" class="logo me-auto"><img src="./ElysianCorp.jpg" alt="" class="img-border img-fluid"></a>
         </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-            </div>
-        </div>
-        <div class="main">
-            <div id="contentSection">
+    </header>
+    <section id="hero">
+        <div class="container">
+            <div id="header">
                 <div class="row">
-                    <div class="col-lg-0 col-md-0 col-sm-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="header_top">
+                            <div class="header_top_left">
+                                <ul class="top_nav">
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/order">Order</a></li>
+                                    <li><a href="/distributor">Distributor</a></li>
+                                </ul>
+                            </div>
+                            <div class="header_top_right">
+                                <p>
+                                    &nbsp;
+                                    [
+                                    <a href="/login">Admin</a>
+                                    ]
+                                    &nbsp;&nbsp;
+                                    <script>
+                                        document.write(new Date().toDateString());
+                                    </script>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="left_content">
-                            <div class="contact_area">
-                                <div class="panel panel-danger">
-                                    <center>
-                                        <h5>
-                                            <b>----------Distributor Registration Form-----------</b>
-                                        </h5>
-                                    </center>
-                                    <form method="post" action="/distrib-data" name="registrationForm"  enctype="multipart/form-data">
-                                       <div class="panel-body">
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="firmName">Firm Name*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <input name="firmName" type="text" maxlength="50" id="firmName"
-                                                        class="form-control" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="ownerName">Owner Name*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <input name="ownerName" type="text" maxlength="50" id="ownerName"
-                                                        class="form-control"
-                                                        style="color:Black;background-color:White;resize: none" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="exp">Experience(in yrs)*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <input name="experience" type="number" maxlength="3" id="exp"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="annualTurnover">Annual Turnover(in INR)*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <input name="annualTurnover" type="number" minlength="1" step="1000" id="annualTurnover"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="contactNum">Contact No.*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <input name="contact" type="text" maxlength="10" id="contactNum"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="firmAddr">Firm Mailing Address*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <textarea name="firmAddress" id="firmAddr"
-                                                        class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="pin">PIN*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <input name="pin" type="text" maxlength="6" id="pin"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="docs">Documents*</label>
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <label for="proof">Proof of Establishment*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <input name="proof" type="file" id="proof"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <!-- <div class="row" style="padding-bottom: 3%;padding-left: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="gst">GST Certificate*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <input name="gst" type="file" id="gst"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="pan">PAN Card of Authorized Reperesentative*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <input name="pan" type="file" id="pan"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
-                                                    <label for="aadhar">Aadhar Card of Authorized Reperesentative*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <input name="aadhar" type="file" id="aadhar"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row" style="padding-bottom: 3%;padding-left: 3%">
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <label for="cheque">Cancelled Cheque*</label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                                    <input name="cheque" type="file" id="cheque"
-                                                        class="form-control" placeholder="" />
-                                                </div>
-                                            </div> -->
-                                        </div>
-                                        <div class="row" style="padding-bottom: 3%">
-                                            <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center">
-                                                <input type="submit" value="Register" id="register"
-                                                    class="btn btn-danger" />
-                                                <input type="reset" id="reset" value="Cancel" class="btn btn-danger"/>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                        <div class="header_bottom">
+                            <div class="add_banner">
+                                <a href="#">
+                                    <img src="banner.jfif" alt="Elysian Corptech" />
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="footer">
-                <div class="footer_bottom">
-                    <p class="copyright">Copyright &copy; 2020 All Rights Reserved</p>
-                    <p class="developer">Software Solutions Provided by <a
-                            href="https://www.elysiancorptech.com/">Elysian Corptech</a>
-                    </p>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                </div>
+            </div>
+            <div class="main">
+                <div id="contentSection">
+                    <div class="row">
+                        <div class="col-lg-0 col-md-0 col-sm-0">
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="left_content">
+                                <div class="contact_area">
+                                    <div class="panel panel-danger">
+                                        <center>
+                                            <h5>
+                                                <b>----------Distributor Registration Form-----------</b>
+                                            </h5>
+                                        </center>
+                                        <form method="post" action="/distrib-data" name="registrationForm"  enctype="multipart/form-data">
+                                        <div class="panel-body">
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="firmName">Firm Name*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <input name="firmName" type="text" maxlength="50" id="firmName"
+                                                            class="form-control" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="ownerName">Owner Name*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <input name="ownerName" type="text" maxlength="50" id="ownerName"
+                                                            class="form-control"
+                                                            style="color:Black;background-color:White;resize: none" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="exp">Experience(in yrs)*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <input name="experience" type="number" maxlength="3" id="exp"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="annualTurnover">Annual Turnover(in INR)*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <input name="annualTurnover" type="number" minlength="1" step="1000" id="annualTurnover"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="contactNum">Contact No.*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <input name="contact" type="text" maxlength="10" id="contactNum"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="firmAddr">Firm Mailing Address*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <textarea name="firmAddress" id="firmAddr"
+                                                            class="form-control"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="pin">PIN*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <input name="pin" type="text" maxlength="6" id="pin"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="docs">Documents*</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <label for="proof">Proof of Establishment*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <input name="proof" type="file" id="proof"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="gst">GST Certificate*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <input name="proof" type="file" id="gst"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <!--<div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="pan">PAN Card of Authorized Reperesentative*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <input name="pan" type="file" id="pan"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left">
+                                                        <label for="aadhar">Aadhar Card of Authorized Reperesentative*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <input name="aadhar" type="file" id="aadhar"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="padding-bottom: 3%;padding-left: 3%">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <label for="cheque">Cancelled Cheque*</label>
+                                                    </div>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <input name="cheque" type="file" id="cheque"
+                                                            class="form-control" placeholder="" />
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <div class="row" style="padding-bottom: 3%">
+                                                <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center">
+                                                    <input type="submit" value="Register" id="register"
+                                                        class="btn btn-danger" />
+                                                    <input type="reset" id="reset" value="Cancel" class="btn btn-danger"/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer fixed-bottom">
+                    <p class="fs-4 text-center">Copyright @ Elysian Corptech</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 
 </html>
