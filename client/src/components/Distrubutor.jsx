@@ -1,13 +1,13 @@
 const react = require('react');
 const reactDom = require('react-dom');
 
-function OrderManagement() {
+function Distributor() {
     return (
         <>
             {/* <Header /> */}
-            Hello
+            Hello Distributor
         </>
     )
 }
 
-export default OrderManagement;
+export default Distributor;

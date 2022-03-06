@@ -7,7 +7,9 @@
     --grey: #fff;
     --darkGrey: #343a40;
 }
-
+.tyopDrawer{
+    color: rgb(5, 82, 35);
+}
 body {
     font-family: "Open Sans", sans-serif;
     background: var(--white);
