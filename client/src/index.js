@@ -1,4 +1,4 @@
-const react = require('react');
+// const react = require('react');
 import React from 'react';
 import App from './app';
 
