@@ -1,182 +1,74 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import { blue } from '@mui/material/colors';
 import OrderManagement from './OrderManagement';
+import logo from '../assets/images/GROWMAX.png'
+import '../style.css'
 import Distributor from './Distrubutor';
+import Register from './Register';
+import Header from './Header';
+import Footer from './Footer';
 
 const drawerWidth = 240;
 
-const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth}px`,
-    ...(open && {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    }),
-  }),
-);
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(['margin', 'width'], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-  justifyContent: 'flex-end',
-}));
-
-export default function Base() {
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+export default function ClippedDrawer() {
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className = 'tyopDrawer' variant="h6" noWrap component="div">
-            Persistent drawer
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
+    <>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <Header/>
+        <Drawer
+          variant="permanent"
+          sx={{
             width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {['Order Management', 'Register', 'Distributor'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-        <OrderManagement/>
-        <Distributor/>
-      </Main>
-    </Box>
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: { color: 'white', backgroundColor: '#1e2761', width: drawerWidth, boxSizing: 'border-box' },
+          }}
+        >
+          <Toolbar />
+          <Box sx={{ overflow: 'auto' }}>
+            Account Details
+            <Divider />
+            <List>
+              {['Register', 'Order Management', 'Distributor'].map((text) => (
+                <ListItem onClick={(e)=>{
+                  if(e.target.innerText === 'Register'){
+                    document.getElementById('register').style.display="block";
+                    document.getElementById('ordMgr').style.display="none";
+                    document.getElementById('distributor').style.display="none";
+                  } else if(e.target.innerText === 'Distributor'){
+                    document.getElementById('register').style.display="none";
+                    document.getElementById('ordMgr').style.display="none";
+                    document.getElementById('distributor').style.display="block";
+                  } else if(e.target.innerText === 'Order Management'){
+                    document.getElementById('register').style.display="none";
+                    document.getElementById('ordMgr').style.display="block";
+                    document.getElementById('distributor').style.display="none";
+                  }
+                }} sx={{ ':focus':{backgroundColor: '#1e2790'} }} button key={text}>
+                <ListItemText primary={text} />
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+        <Box component="main" sx={{flexGrow: 1 }}>
+          <Toolbar />
+          <div id='ordMgr'><OrderManagement/></div>
+          <div id='distributor' style={{'display': 'none'}}><Distributor/></div>
+          <div id='register' style={{'display': 'none'}}><Register/></div>
+        </Box>
+        <Footer/>
+      </Box>
+    </>
   );
 }
-// import React from 'react';  
-// import Button from '@mui/material/Button';  
-// import Menu from '@mui/material/Menu';  
-// import MenuItem from '@mui/material/MenuItem';  
-// import AppBar from '@mui/material/AppBar';  
-// import Toolbar from '@mui/material/Toolbar';  
-  
-// export default function Base() {  
-//         const [anchorEl, open] = React.useState(null);  
-//         const handleClick = event => {  
-//                 open(event.currentTarget);  
-//         };  
-  
-//         const handleClose = () => {  
-//                 open(null);  
-//         };  
-//         return (  
-//                 <>  
-//                         <AppBar position="static">  
-//                                 <Toolbar style={{ 'paddingLeft': "600px" }}>  
-//                                         Material UI Menu  
-//     </Toolbar>  
-//                         </AppBar>  
-//                         <div>  
-  
-//                                 <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>  
-//                                         Open Menu  
-//       </Button>  
-//                                 <Menu  
-//                                         id="Menu"  
-//                                         anchorEl={anchorEl}  
-//                                         keepMounted  
-//                                         open={Boolean(anchorEl)}  
-//                                         onClose={handleClose}  
-//                                 >  
-//                                         <MenuItem onClick={handleClose}>About</MenuItem>  
-//                                         <MenuItem onClick={handleClose}>Contact</MenuItem>  
-//                                 </Menu>  
-//                         </div>  
-//                 </>  
-//         );  
-// }

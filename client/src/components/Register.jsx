@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Button, Input, TextField, Typography } from '@mui/material';
+import { Button, FormControl, FormHelperText, Input, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-export default function Distributor() {
+export default function Register() {
 
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,18 +19,42 @@ export default function Distributor() {
             <div className="registerForm">
             <center>
                 <Typography variant='h4'>
-                    Distributor Registration Form
+                    Outlet Registration Form
                 </Typography>
             </center>
             <Grid container direction="row" justifyContent="center" alignItems='center' spacing={2} className='mt-3'>
+                <Grid item xs={2} sx={{alignSelf: 'center'}}>
+                    <Item sx={{ background: 'none', boxShadow: 0}}>
+                        <InputLabel id="" sx={{fontSize: '1.15rem'}}>Employee Code</InputLabel>
+                    </Item>
+                </Grid>
+                <Grid item xs={4}>
+                    <Item sx={{background: 'none', boxShadow: 0}}>
+                        <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" htmlFor="empCode">Employee Code</InputLabel>
+                        <Select
+                        name="empCode"
+                        defaultValue=""
+                        label='Employee Code'
+                        >
+                            <MenuItem value={1}>Ten</MenuItem>
+                            <MenuItem value={2}>Twenty</MenuItem>
+                            <MenuItem value={3}>Thirty</MenuItem>
+                        </Select>
+                        </FormControl>
+                        <FormHelperText sx={{textAlign: 'right'}}>* Required</FormHelperText>
+                    </Item>
+                </Grid>
+            </Grid>
+            <Grid container direction="row" justifyContent="center" alignItems='center' spacing={2} className='mt-3'>
                 <Grid item xs={3} sx={{alignSelf: 'center'}}>
                     <Item sx={{alignSelf: 'center', background: 'none', boxShadow: 0}}>
-                        <TextField
+                        <TextField 
                         id="standard-basic" 
-                        label="Company Name *" 
+                        label="Outlet Code *" 
                         size='medium' 
                         variant="standard" 
-                        sx={{background:'none', width: '100%'}}
+                        sx={{width: '100%'}}
                         />
                     </Item>
                 </Grid>
@@ -38,7 +62,7 @@ export default function Distributor() {
                     <Item sx={{background: 'none', boxShadow: 0}}>
                         <TextField 
                         id="standard-basic" 
-                        label="Company Owner Name *" 
+                        label="Outlet Name *" 
                         size='medium' 
                         variant="standard" 
                         sx={{width: '100%'}}
@@ -51,7 +75,7 @@ export default function Distributor() {
                     <Item sx={{alignSelf: 'center', background: 'none', boxShadow: 0}}>
                         <TextField 
                         id="standard-basic" 
-                        label="Experience (in Years) *" 
+                        label="Owner Name *" 
                         size='medium' 
                         variant="standard" 
                         sx={{width: '100%'}}
@@ -60,36 +84,9 @@ export default function Distributor() {
                 </Grid>
                 <Grid item xs={3}>
                     <Item sx={{background: 'none', boxShadow: 0}}>
-                        <TextField 
-                        inputProps={{ min: 0, max: 10 }}
-                        // inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                        id="standard-basic" 
-                        label="Annual Turnover (INR) *" 
-                        size='medium' 
-                        type='number'
-                        variant="standard" 
-                        sx={{width: '100%'}}
-                        />
-                    </Item>
-                </Grid>
-            </Grid>
-            <Grid container direction="row" justifyContent="center" alignItems='center' spacing={2} className='mt-3'>
-                <Grid item xs={3} sx={{alignSelf: 'center'}}>
-                    <Item sx={{alignSelf: 'center', background: 'none', boxShadow: 0}}>
                         <TextField 
                         id="standard-basic" 
                         label="Contact Number *" 
-                        size='medium' 
-                        variant="standard" 
-                        sx={{width: '100%'}}
-                        />
-                    </Item>
-                </Grid>
-                <Grid item xs={3}>
-                    <Item sx={{background: 'none', boxShadow: 0}}>
-                        <TextField 
-                        id="standard-basic" 
-                        label="Email Address *" 
                         size='medium' 
                         variant="standard" 
                         sx={{width: '100%'}}
@@ -104,7 +101,7 @@ export default function Distributor() {
                         id="standard-multiline" 
                         maxRows={4} 
                         multiline 
-                        label="Firm Mailing Address *" 
+                        label="Outlet Address *" 
                         size='medium' 
                         variant="standard" 
                         sx={{width: '100%'}}
@@ -123,24 +120,6 @@ export default function Distributor() {
                     </Item>
                 </Grid>
             </Grid>
-            <Typography my={3} sx={{marginLeft:'26%'}}>
-                Required Documents*
-            </Typography>
-            <Grid container direction="row" justifyContent="center" alignItems='center' spacing={2}>
-                <Grid item xs={3} sx={{alignSelf: 'center'}}>
-                    <Item sx={{alignSelf: 'center', background: 'none', boxShadow: 0}}>
-                        <label htmlFor='proof' >Proof of Establishment</label>
-                        <Input type='file' accept='image/*' required/>
-                    </Item>
-                </Grid>
-                <Grid item xs={3}>
-                    <Item sx={{alignSelf: 'center', background: 'none', boxShadow: 0}}>
-                        <label >GST Certificate</label>
-                        <Input type='file' accept='image/*' required/>
-                    </Item>
-                </Grid>
-            </Grid>
-            
             <Grid container direction="row" justifyContent="center" alignItems='center' spacing={2} className='mt-3'>
                 <Grid item xs={2}>
                     <Item sx={{background: 'none', boxShadow: 0}}>
